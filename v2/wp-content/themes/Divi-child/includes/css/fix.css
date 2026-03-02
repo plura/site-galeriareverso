@@ -1,0 +1,13 @@
+#main-content,
+#main-content > .et-l.et-l--body > .et_builder_inner_content > .et_pb_section {
+	background-color: transparent;
+}
+
+
+
+
+
+/* Publications */
+:is(.page-id-7472, .wpmlobj-id-7472) .plura-wp-posts[data-type="rg_publication"] {
+	margin: var(--plura-wp-posts-gap) var(--plura-wp-posts-gap) 0;
+}

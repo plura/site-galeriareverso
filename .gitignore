@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# Unignore only what we want
+!.gitignore
+!template/
+!template/**
+!v2/
+!v2/wp-content/
+!v2/wp-content/plugins/
+!v2/wp-content/plugins/galeriareverso/
+!v2/wp-content/plugins/galeriareverso/**
+!v2/wp-content/themes/
+!v2/wp-content/themes/Divi-child/
+!v2/wp-content/themes/Divi-child/**

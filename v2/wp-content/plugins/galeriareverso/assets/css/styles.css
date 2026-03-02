@@ -1,0 +1,185 @@
+:root {
+
+	--rg-globalrs--grid-gap: 30px;
+
+}
+
+
+
+
+/* ES HOLDER */
+.rg-eg-holder[data-label]::before,
+.rg-group[data-label]::before {
+	content: attr(data-label);
+	display: block;
+}
+
+
+
+
+/* OBJECT/PUBLICATION INFO */
+/* Object: Info */
+
+
+
+/* common */
+:is(.single-rg_object, .single-rg_publication) .rg-info .rg-info-item.price::after {
+    content:'€';
+}
+
+
+/* table layout */ 
+:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] {
+	--g:  60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px var(--g) !important;
+}
+
+:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] .rg-info-item {
+    display: flex;
+    /*width: calc( ( 100% - var(--g) ) / 2 );*/
+}
+
+/*:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] {
+	grid-gap:  10px;
+}
+
+:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"],
+:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] .rg-info-item {
+	display: grid;
+}
+   
+ 
+:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] .rg-info-item {
+	grid-gap: 5px;
+	grid-template-columns: min-content auto;
+}*/
+
+
+:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] .rg-info-item[data-label]::before {
+	display: block;
+	content: attr(data-label) ':';
+	margin-right: 5px;
+	white-space: nowrap;
+}
+
+
+@media (min-width: 768px) {
+
+	:is(.single-rg_object, .single-rg_publication) .rg-info[data-layout="table"] {
+		grid-gap: 10px 30px;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+
+
+
+
+
+
+
+
+/* GROUP */
+.rg-group {
+	display: grid;
+}
+
+
+/* GROUP: GRID */
+.rg-group[data-layout="grid"] {
+	grid-template-columns: repeat(2, 1fr);
+	gap:  var(--rg-globals-grid-gap);
+}
+
+
+.rg-group[data-layout="grid"] .rg-group-item {
+	aspect-ratio: 1 / 1;
+	background-size: 0 0;
+	border: 1px solid #000;
+
+	position: relative;
+}
+
+
+.rg-group[data-layout="grid"] .rg-group-item::before,
+.rg-group[data-layout="grid"][data-group="year"] .rg-group-item::after {
+	height: 100%;
+	width:  100%;
+}
+
+.rg-group[data-layout="grid"] .rg-group-item::before {
+	content: '';
+	background-image: inherit;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: block;
+	position: relative;
+}
+
+
+.rg-group[data-layout="grid"][data-group="year"] .rg-group-item::after {
+	align-items: center;
+	content: attr(data-exhibition-year);
+	color: white;
+	background-color: rgba(0,0,0,.5);
+	display: flex;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: auto;
+}
+
+
+@media all and (min-width: 768px) {
+
+	.rg-group[data-layout="grid"] {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+}
+
+@media all and (min-width: 991px) {
+
+	.rg-group[data-layout="grid"] {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+}
+
+
+/* GRID:  LIST */
+.rg-group[data-layout="list"] {
+	gap: calc( var(--rg-globals-grid-gap) / 6);
+} 
+
+
+
+
+
+/* GROUP: LABEL */
+.rg-group[data-label]::before {
+	content: attr(data-label);
+}
+
+
+
+
+/* EXHIBITION */
+
+
+
+
+
+
+
+
+/* OBJECT */
+
+
+
+
+

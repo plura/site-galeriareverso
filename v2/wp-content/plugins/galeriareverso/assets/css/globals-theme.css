@@ -1,0 +1,645 @@
+:root {
+
+	--rg-globals-theme-border-radius: 5px;
+
+	/* ========================
+	   COLORS
+	   ======================== */
+
+	--rg-globals-theme-colors-color1: #f47820;
+	--rg-globals-theme-colors-background: #f9f9f9;
+	--rg-globals-theme-colors-text: #111;
+
+	/* ========================
+	   TYPOGRAPHY
+	   ======================== */
+
+	/* -- Font Families -- */
+	--rg-globals-theme-fonts-family-body: "Montserrat", sans-serif;
+	--rg-globals-theme-fonts-family-heading: "Montserrat", sans-serif;
+
+	/* -- Font Sizes (with clamp for responsiveness) -- */
+	--rg-globals-theme-fonts-size-h1: clamp(2.25rem, 5vw, 3.25rem);   /* slightly larger */
+	--rg-globals-theme-fonts-size-h2: clamp(2rem, 4.5vw, 2.75rem);
+	--rg-globals-theme-fonts-size-h3: clamp(1.75rem, 3.5vw, 2.25rem);
+	--rg-globals-theme-fonts-size-h4: clamp(1.5rem, 3vw, 2rem);
+	--rg-globals-theme-fonts-size-h5: clamp(1.25rem, 2.5vw, 1.5rem);
+	--rg-globals-theme-fonts-size-h6: clamp(1rem, 1.5vw, 1.25rem);
+
+	--rg-globals-theme-fonts-size-body:             clamp(0.875rem, 1vw, 0.9375rem);    /* 14–15px */
+	--rg-globals-theme-fonts-size-body-small:       clamp(0.75rem, 0.9vw, 0.875rem);     /* 12–14px */
+	--rg-globals-theme-fonts-size-body-extra-small: clamp(0.625rem, 0.8vw, 0.75rem);     /* 10–12px */
+
+	/* -- Line Heights -- */
+	--rg-globals-theme-fonts-line-height-heading: 1.2;
+	--rg-globals-theme-fonts-line-height-body: 1.4;
+
+	/* -- Font Weights -- */
+	--rg-globals-theme-fonts-weight-thin: 100;
+	--rg-globals-theme-fonts-weight-extralight: 200;
+	--rg-globals-theme-fonts-weight-light: 300;
+	--rg-globals-theme-fonts-weight-normal: 400;
+	--rg-globals-theme-fonts-weight-medium: 500;
+	--rg-globals-theme-fonts-weight-semibold: 600;
+	--rg-globals-theme-fonts-weight-bold: 700;
+	--rg-globals-theme-fonts-weight-extrabold: 800;
+	--rg-globals-theme-fonts-weight-black: 900;
+
+	/* -- Letter Spacing (renamed to wide) -- */
+	--rg-globals-theme-fonts-letter-spacing-wide: 0.05em;
+
+	/* ========================
+	   ANIM
+	   ======================== */
+
+	--rg-globals-theme-anim-speed: .4s;
+
+}
+
+
+header :is( .menu-item > a, .menu-item > a > span ) {
+   /*  color: white; */
+    text-transform: uppercase;
+    font-size: var(--rg-globals-theme-fonts-size-body-small);
+    font-weight: var(--rg-globals-theme-fonts-weight-bold);
+    /* transition: color 300ms ease 0ms; */
+}
+
+/* header > .has_et_pb_sticky :is( .menu-item > a, .menu-item > a > span ) {
+    color: var(--rg-globals-theme-colors-text) !important;
+} */
+
+
+
+/* ========================================
+   Base Typography + Color (override theme reset)
+   ======================================== */
+
+body {
+	background-color: var(--rg-globals-theme-colors-background);
+}
+
+a, abbr, acronym, address, applet, b, big, blockquote, body, center,
+cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form,
+h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, kbd, label,
+legend, li, object, ol, p, pre, q, s, samp, small, span, strike,
+strong, sub, sup, tt, u, ul, var {
+	font-family: var(--rg-globals-theme-fonts-family-body);
+	font-size: var(--rg-globals-theme-fonts-size-body);
+	line-height: var(--rg-globals-theme-fonts-line-height-body);
+	font-weight: var(--rg-globals-theme-fonts-weight-normal);
+	color: var(--rg-globals-theme-colors-text);
+}
+
+
+/* ========================================
+   Headings
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--rg-globals-theme-fonts-family-heading);
+	font-weight: var(--rg-globals-theme-fonts-weight-semibold);
+	font-size: inherit;
+	line-height: var(--rg-globals-theme-fonts-line-height-heading);
+	text-wrap: balance;
+}
+
+h1 { font-size: var(--rg-globals-theme-fonts-size-h1); }
+h2 { font-size: var(--rg-globals-theme-fonts-size-h2); }
+h3 { font-size: var(--rg-globals-theme-fonts-size-h3); }
+h4 { font-size: var(--rg-globals-theme-fonts-size-h4); }
+h5 { font-size: var(--rg-globals-theme-fonts-size-h5); }
+h6 { font-size: var(--rg-globals-theme-fonts-size-h6); }
+
+
+/* ========================================
+   Links
+   ======================================== */
+
+a:not(.plura-wp-post) {
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+	color: var(--rg-globals-theme-colors-color1);
+}
+
+
+
+/* ========================================
+   Global Colors
+   ======================================== */
+
+a:not(.plura-wp-post) {
+	color: var(--rg-globals-theme-colors-color1);
+}
+
+
+
+/* ========================================
+   Posts
+   ======================================== */
+
+
+
+/* Common: Posts' Grids */
+.plura-wp-posts:is(
+	[data-type="rg_artist"],
+	[data-type="rg_exhibition"],
+	[data-type="rg_object"]
+ ) .plura-wp-post .plura-wp-post-title {
+	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-weight: var(--rg-globals-theme-fonts-weight-light);
+}
+
+.plura-wp-posts:is(
+	[data-type="rg_artist"],
+	[data-type="rg_exhibition"]
+ ) .plura-wp-post .plura-wp-post-title {
+	align-items: center;
+	display: flex;
+	height: 40px;
+	justify-content: center;
+	padding-bottom: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.plura-wp-posts:is(
+	[data-type="rg_artist"],
+	[data-type="rg_exhibition"],
+	[data-type="rg_object"][data-exclude] /* related objects */
+ ) .plura-wp-post .plura-wp-post-featured-image {
+	object-fit: cover;
+	width: 100%;
+}
+
+
+/* Common: Posts - Masonry layout */
+.plura-wp-posts.rg-masonry {
+	display: block;
+}
+
+.plura-wp-posts:is(
+	[data-type="rg_object"][data-context="exhibition"],
+	[data-type="rg_object"][data-rg-artist],
+	[data-type="rg_object"][data-rg-shop],
+	[data-type="rg_publication"]
+):not([data-exclude]) .plura-wp-post {
+	margin-bottom: calc( var(--plura-wp-posts-gap) * 2);
+	width: calc( ( 100% - ( var(--plura-wp-posts-cols) - 1 ) * var(--plura-wp-posts-gap) ) / var(--plura-wp-posts-cols) );
+}
+
+/* body:not(.single-rg_object) .plura-wp-posts:is(
+	[data-type="rg_object"][data-context="exhibition"],
+	[data-type="rg_object"][data-rg-artist],
+	[data-type="rg_publication"]
+) .plura-wp-post {
+	margin-bottom: calc( var(--plura-wp-posts-gap) * 2);
+	width: calc( ( 100% - ( var(--plura-wp-posts-cols) - 1 ) * var(--plura-wp-posts-gap) ) / var(--plura-wp-posts-cols) );
+} */
+
+
+/* Common: Posts Objects */
+:is(.single-rg_artist, .single-rg_exhibition) .plura-wp-posts[data-type="rg_object"] {
+	--plura-wp-posts-cols: 2;
+}
+
+@media screen and (min-width: 768px) {
+	:is(.single-rg_artist, .single-rg_exhibition) .plura-wp-posts[data-type="rg_object"] {
+		--plura-wp-posts-cols: 3;
+	}
+}
+
+
+
+/* Common: Posts - RG Object [ALL] + Publication [More] */
+.plura-wp-posts:is([data-type="rg_object"],[data-type="rg_publication"]) .plura-wp-post {
+	align-items: center;
+	gap: calc( var(--plura-wp-posts-gap) / 6 );
+}
+
+.plura-wp-posts:is([data-type="rg_object"],[data-type="rg_publication"]) .plura-wp-post .plura-wp-post-title {
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+}
+
+.plura-wp-posts:is([data-type="rg_object"],[data-type="rg_publication"]) .plura-wp-post :is(
+	.plura-wp-link,
+	.plura-wp-post-title,
+	.plura-wp-post-meta .plura-wp-post-meta-item .plura-wp-post-meta-item-value
+ ) {
+	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide);
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+
+/* Common: Object / Publications [Related] */
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] {
+	--plura-wp-posts-cols: 6;
+	gap: calc( var(--plura-wp-posts-gap) / 3 * 2 );
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude][data-label]::before {
+	content: attr(data-label);
+	grid-column: 1 / -1;
+	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide);
+	text-transform: uppercase;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post {
+    justify-content: center;
+    padding: 0 20px;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] :is(.plura-wp-post, .plura-wp-post .plura-wp-post-meta) {
+	gap: calc( var(--plura-wp-posts-gap) / 12 );
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post::before,
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post .plura-wp-post-featured-image {
+    left: 0;
+	position: absolute;
+	top: 0;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post::before {
+    background-color: black;
+    content: '';
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    transition: all var(--rg-globals-theme-anim-speed) ease-out;
+	z-index: 2;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post :is(.plura-wp-post-title, .plura-wp-post-meta-item-value) {
+    color: white;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post .plura-wp-post-meta .plura-wp-post-meta-item .plura-wp-post-meta-item-value {
+	font-size: var(--rg-globals-theme-fonts-size-body-extra-small);
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post .plura-wp-post-featured-image {
+	object-fit: cover;
+	z-index: 1;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post :is(.plura-wp-post-title, .plura-wp-post-meta-item) {
+	z-index: 3;
+}
+
+/* anim */
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post :is(.plura-wp-post-title, .plura-wp-post-meta-item) {
+    transition: all .5s ease-out;
+    opacity: 0;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post:hover::before {
+    opacity: .6;
+}
+
+:is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post:hover :is(.plura-wp-post-title, .plura-wp-post-meta-item) {
+    opacity: 1;
+}
+
+
+
+/* Common: Object / Publications - Title + Meta (no Post) */
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-title {
+	font-size: var(--rg-globals-theme-fonts-size-body);
+    font-weight: var(--rg-globals-theme-fonts-weight-bold);	
+	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide);
+	text-transform: uppercase;
+}
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-meta {
+    gap: calc( var(--plura-wp-post-gap) / 3 ) calc( var(--plura-wp-post-gap) );
+    display: grid;
+    grid-template-columns: min-content auto;
+}
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-meta .plura-wp-post-meta-item {
+    display: contents;
+}
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-meta .plura-wp-post-meta-item[data-label]::before {
+    content: attr(data-label)':';
+    font-weight: var(--rg-globals-theme-fonts-weight-bold);
+}
+
+/* Common: Object / Publications: Gallery */
+.plura-wp-gallery .plura-wp-gallery-item img.plura-wp-image {
+	height: auto;
+	width: 100%;
+}
+
+
+
+
+/* Posts - RG Artist */
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post:not( :has(.plura-wp-post-featured-image) ) {
+	border: 2px solid red;
+}
+
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post:not( :has(.plura-wp-post-featured-image) )::before {
+	content: '';
+	display: block;
+}
+
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post .plura-wp-post-featured-image,
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post:not( :has(.plura-wp-post-featured-image) )::before {
+	aspect-ratio: 1 / 1;
+	width: 100%;
+}
+
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post .plura-wp-post-featured-image {
+	aspect-ratio: 1 / 1;
+}
+
+@media screen and (max-width: 767.99px) {
+
+	.plura-wp-posts[data-type="rg_artist"] {
+		--plura-wp-posts-cols: 2;
+	}
+
+}
+
+
+
+
+
+/* RG Object - Posts - Object Page [Related] */
+.single-rg_object .plura-wp-posts[data-type="rg_object"][data-exclude] :is(.plura-wp-post, .plura-wp-post .plura-wp-post-featured-image) {
+    aspect-ratio: 1 / 1;
+}
+
+
+
+/* RG Object - Posts - Artist Page */
+.single-rg_artist .plura-wp-post-featured-image[data-post-type="rg_artist"] {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+
+
+/* RG Object - Posts - Shop */ 
+.plura-wp-posts[data-type="rg_object"][data-rg-shop="1"] {
+	--plura-wp-posts-cols: 1;
+}
+
+@media screen and (min-width: 768px) {
+
+	.plura-wp-posts[data-type="rg_object"][data-rg-shop="1"] {
+		--plura-wp-posts-cols: 3;
+	}
+
+}
+
+
+/* RG Object - Posts */
+.plura-wp-post-meta-item[data-type="price"] .plura-wp-post-meta-item-value::after {
+    content: '€';
+}
+
+
+/* RG Object - Title */
+.plura-wp-posts[data-type="rg_object"] .plura-wp-post .plura-wp-post-title {
+	font-size: var(--rg-globals-theme-fonts-size-body);
+	line-height: var(--rg-globals-theme-fonts-line-height-body);
+	padding-bottom: 0;
+}
+
+.plura-wp-posts[data-type="rg_object"] .plura-wp-post .plura-wp-post-meta {
+	align-items: center;
+}
+
+
+
+/* Artist / Exhibition */
+:is(.rg-artist-exhibitions, .rg-exhibition-artists)  {
+	display: flex;
+	flex-direction: column;
+	gap: calc( var(--plura-wp-posts-gap) / 6 );
+}
+
+:is(.rg-artist-exhibitions, .rg-exhibition-artists),
+:is(.rg-artist-exhibitions, .rg-exhibition-artists) :is(.rg-artist-exhibition, .rg-exhibition-artist) {
+	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);	
+}
+
+:is(.rg-artist-exhibitions, .rg-exhibition-artists)[data-label]::before {
+	content: attr(data-label);
+	display: block;
+	text-transform: uppercase;
+}
+
+:is(.rg-artist-exhibitions, .rg-exhibition-artists) :is(.rg-artist-exhibition, .rg-exhibition-artist) {
+	display: block;
+}
+
+
+
+/* Exhibition Datetime */
+.rg-datetime {
+	--inner-gap: calc( var(--plura-wp-posts-gap) / 6 );
+	display: flex;
+	flex-direction: column;
+	gap: var(--plura-wp-posts-gap);
+	text-transform: uppercase;
+}
+
+.rg-datetime * {
+	font-family: var(--rg-globals-theme-fonts-family-body);
+	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+}
+
+.rg-datetime .start-end,
+.rg-datetime .rg-datetime-item {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.rg-datetime .rg-datetime-item.start-end .start::after,
+.rg-datetime .rg-datetime-item.opening .start::after {
+	content: '-';
+	margin: 0 var(--inner-gap);
+}
+
+
+.rg-datetime .rg-datetime-item.opening::before {
+	content:  attr(data-label);
+	display: block;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+
+	/* .rg-datetime .rg-datetime-item.opening {
+		gap: var(--inner-gap);
+
+	} */
+
+	.rg-datetime .rg-datetime-item.opening:has(.start-end) .date::after {
+		content:  '|';
+		margin: 0 var(--inner-gap);
+	}
+
+}
+
+
+
+/* Exhibitions */
+.plura-wp-posts[data-type="rg_exhibition"] .plura-wp-post .plura-wp-post-featured-image {
+	aspect-ratio: 16 / 9;
+}
+
+@media screen and (min-width: 768px) {
+
+	.plura-wp-posts[data-type="rg_exhibition"] {
+		--plura-wp-posts-cols: 3;
+	}
+
+}
+
+
+
+/* Exhibitions Archive */
+.rg-exhibitions-years {
+	--plura-wp-posts-cols: 3;
+	display: grid;
+	grid-template-columns: repeat( var(--plura-wp-posts-cols), 1fr );
+	gap: var(--plura-wp-posts-gap);
+}
+
+.rg-exhibitions-years .rg-exhibitions-year {
+	display: block !important;
+	position: relative;
+}
+
+.rg-exhibitions-years .rg-exhibitions-year .rg-exhibitions-year-featured-image {
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	width: 100%;
+}
+
+
+/* Publications */
+.single-rg_publication .plura-wp-posts[data-type="rg_publication"][data-exclude] :is(.plura-wp-post, .plura-wp-post .plura-wp-post-featured-image) {
+    aspect-ratio: 21 / 29;
+}
+
+
+
+
+/* rev slider */
+rs-module.rg-banner .plura-wp-title {
+    color: white;
+	line-height: var(--rg-globals-theme-fonts-line-height-heading) !important;
+
+	text-align: right !important;
+}
+
+rs-module.rg-banner :is(.plura-wp-title, .plura-wp-breadcrumb, .plura-wp-breadcrumb-link) {
+	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide) !important;
+}
+
+rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb .plura-wp-breadcrumb-link,
+rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child)::after {
+	color: white;
+}
+
+rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child),
+rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child)::after {
+	display: inline-block;
+}
+
+rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child)::after {
+	margin-left: calc( var(--plura-wp-breadcrumb-gap) * 2 );
+}
+
+
+
+
+
+
+.fa-a::after, .fa-b::before {
+	/* removed font- based rules */
+	display: inline-block;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+/* fancybox trigger */
+.plura-wp-posts .plura-wp-post .rg-fancybox-wrapper .rg-fancybox-trigger {
+	color: var(--rg-globals-theme-colors-color1);
+	cursor: pointer;
+}
+
+.plura-wp-posts .plura-wp-post .rg-fancybox-wrapper .rg-fancybox-trigger::before {
+  font: var(--fa-font-solid);
+  content: '\f002';
+}
+
+
+.plura-wp-posts[data-exclude] .plura-wp-post .rg-fancybox-wrapper {
+	z-index: 3;
+}
+
+
+.plura-wp-posts:not([data-exclude]) .plura-wp-post .rg-fancybox-wrapper {
+	background-color: rgba(0, 0, 0, .6);
+	left: var(--img-l);
+	pointer-events: none;
+	position: absolute;
+	height: var(--img-h);
+	top: var(--img-t);
+	width: var(--img-w);
+	z-index: auto;
+}
+
+.plura-wp-posts:not([data-exclude]) .plura-wp-post .rg-fancybox-wrapper .rg-fancybox-trigger {
+	pointer-events: all;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, 50%);
+}
+
+
+/* anim */
+.plura-wp-posts[data-exclude] .plura-wp-post .rg-fancybox-wrapper .rg-fancybox-trigger,
+.plura-wp-posts:not([data-exclude]) .plura-wp-post .rg-fancybox-wrapper {
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility var(--rg-globals-theme-anim-speed) linear, opacity var(--rg-globals-theme-anim-speed) ease-out;
+}
+
+.plura-wp-posts[data-exclude] .plura-wp-post:hover .rg-fancybox-wrapper .rg-fancybox-trigger,
+.plura-wp-posts:not([data-exclude]) .plura-wp-post:hover .rg-fancybox-wrapper {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0s;
+}
+
+
+
+
+
+/* Banner */
+.plura-wp-component .plura-wp-component-banner :is(.plura-wp-title, .plura-wp-title *) {
+	color: white;
+    font-size: var(--rg-globals-theme-fonts-size-h1);
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+	line-height: var(--rg-globals-theme-fonts-line-height-heading);
+}

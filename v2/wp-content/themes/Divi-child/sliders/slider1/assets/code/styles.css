@@ -1,0 +1,23 @@
+
+
+#ph-home-slider .swiper .swiper-slide {
+  background-color: #f0f0f0;
+}
+
+#ph-home-slider .ph-intro-logo-tagline {
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+    gap: 30px;
+    left: 50%;
+    position: absolute;    
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+#ph-home-slider .ph-intro-logo-tagline .ph-intro-logo {
+    height: 30dvh;
+    width: auto;
+}
