@@ -111,7 +111,7 @@ function rg_fancybox_trigger(): string {
 
 add_shortcode('plura-wp-banner', function( $args ) {
 
-	$atts = shortcode_atts(['source' => null, 'context' => null], $args);
+	$atts = shortcode_atts(['source' => null, 'context' => 'null'], $args);
 
 	$atts['source'] = array_filter(array_map('intval', is_array($atts['ids']) ? $atts['ids'] : explode(',', $atts['ids'])));
 
@@ -181,7 +181,7 @@ function plura_wp_banner_item(int|WP_Term|WP_Post $object, ?string $context): ?s
 
 	}
 
-	$content['title'] = plura_wp_title(object: $object);
+	$content['title'] = plura_wp_title(object: $object, context: 'plura-wp-banner-item-title');
 	
 	$content = apply_filters('plura_wp_banner_item', $content, $object, $context);
 

@@ -60,15 +60,11 @@ function rg2_exhibitions_archive( array|int $exclude = [], array|int $terms = []
 
 	global $wp_query;
 
-	$params = ['exclude' => $exclude];
-
 	$link = get_permalink( get_the_ID() );
 
 	if( $test ) {
 
 		$test_values = [];
-
-		//print_r( $wp_query );
 		
 		foreach(['rg_exhibition_year', 'lang', 'test'] as $query_param) {
 
@@ -88,7 +84,7 @@ function rg2_exhibitions_archive( array|int $exclude = [], array|int $terms = []
 	//https://stackoverflow.com/questions/63870725/filter-custom-post-type-based-on-acf-date-field-value
 	if( $wp_query->get('rg_exhibition_year') ) {
 
-		$params = [ ...$params, 'year' => $wp_query->get('rg_exhibition_year')];
+		$params = [ 'exclude' => $exclude, 'year' => $wp_query->get('rg_exhibition_year')];
 		
 		return plura_wp_posts(
 			limit: -1,
@@ -99,7 +95,7 @@ function rg2_exhibitions_archive( array|int $exclude = [], array|int $terms = []
 
 	}
 
-	return rg2_exhibitions_years_grid(params: $params, link: $link);
+	return rg2_exhibitions_years_grid(exclude: $exclude, link: $link);
 
 }
 
@@ -108,7 +104,9 @@ function rg2_exhibitions_archive( array|int $exclude = [], array|int $terms = []
 
 //get all different years with exhibitions 
 //https://wordpress.stackexchange.com/a/112120
-function rg2_exhibitions_years_grid(array $params = [], string $link = '' ) :string {
+function rg2_exhibitions_years_grid(array $exclude = [], string $link = '' ) :string {
+
+	global $wpdb;
 
 	$query_vars = '';
 
@@ -125,109 +123,78 @@ function rg2_exhibitions_years_grid(array $params = [], string $link = '' ) :str
 		$link       = substr($link, 0, $qpos);
 	}
 
-/* 	$has_query_vars = preg_match('/(\?.+)?$/', $link, $matches);
+	$link = trailingslashit( $link );
 
-	if( $has_query_vars ) {
+	// Build optional exclude clause (by taxonomy term IDs)
+	$exclude_clause = '';
+	if( !empty( $exclude ) ) {
+		$ids = implode( ',', array_map( 'intval', (array) $exclude ) );
+		$exclude_clause = "AND p.ID NOT IN (
+			SELECT object_id
+			FROM {$wpdb->term_relationships} tr
+			INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+			WHERE tt.taxonomy = 'rg_exhibitions_category'
+			AND tt.term_id IN ($ids)
+		)";
+	}
 
-		print_r( $matches ); if( empty( $matches ) ) echo "wewe";
+	// Filter by current WPML language if active
+	$wpml_join  = '';
+	$wpml_where = '';
+	if( defined('ICL_LANGUAGE_CODE') ) {
+		$wpml_join  = "INNER JOIN {$wpdb->prefix}icl_translations t ON t.element_id = p.ID AND t.element_type = 'post_rg_exhibition'";
+		$wpml_where = $wpdb->prepare( "AND t.language_code = %s", ICL_LANGUAGE_CODE );
+	}
 
-		$query_vars = $matches[1];
+	// Single query: one row per year + one representative post_id for the thumbnail
+	$rows = $wpdb->get_results("
+		SELECT YEAR(pm.meta_value) AS year, MIN(pm.post_id) AS post_id
+		FROM {$wpdb->postmeta} pm
+		INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+		$wpml_join
+		WHERE pm.meta_key = 'rg_exhibition_date_start'
+		  AND p.post_type = 'rg_exhibition'
+		  AND p.post_status = 'publish'
+		  $wpml_where
+		  $exclude_clause
+		GROUP BY YEAR(pm.meta_value)
+		ORDER BY year DESC
+	");
 
-		$link = preg_replace('/(\?.+)?$/', '', $link);
 
-	} */
+	if( empty( $rows ) ) return '';
 
-	
-	$posts = plura_wp_posts(
-		limit: -1,
-		output: 'objects',
-		params: $params,
-		type: 'rg_exhibition',
-		context: 'rg-exhibitions-years'
-	);
- 
+	$html = [];
 
- 	/*$current_lng = rg_wpml_set_lang( true );
+	foreach( $rows as $row ) {
 
-	$query = new WP_Query( rg_exhibitions_query_vars( $args ) );
+		$html_year = [];
 
-	if( $current_lng ) {
+		if( $img = get_post_thumbnail_id( $row->post_id ) ) {
 
-		rg_wpml_set_lang( $current_lng );
-
-	}*/
-
-	if( !empty( $posts ) ) {
-
-		$years = []; 
-
-		foreach( $posts as $post ) {
-
-			$date = get_field('rg_exhibition_opening_date', $post->ID);
-
-			if( $date ) {
-
-				$datetime = DateTime::createFromFormat('d/m/Y', $date); if( !$datetime ) continue;
-			/* echo $post->post_title . ' ' . $post->ID . " " . $date . "<br>"; */
-				$year = $datetime->format('Y');
-
-				if( !array_key_exists($year, $years) ) {
-
-					$years[ $year ] = ['posts' => []];
-
-				}
-
-				if( !isset( $years[ $year ]['img'] ) && $img = get_post_thumbnail_id( $post->ID ) ) {
-
-					$years[ $year ]['img'] = $img;
-
-				} 
-
-				$years[ $year ]['posts'][] = $post;
-
-			}
+			$html_year[] = plura_wp_image( attachment: $img, atts: ['class' => 'rg-exhibitions-year-featured-image'] );
 
 		}
 
-		krsort( $years );
+		$html_year[] = sprintf('<h3 %s>%s</h3>', plura_attributes(['class' => 'rg-exhibitions-year-title']), $row->year);
 
-		$html = [];
-
-		foreach( $years as $year => $yeardata ) {
-
-			$html_year = [];
-
-			if( isset( $yeardata['img'] ) ) {
-
-				$html_year_img = plura_wp_image( attachment: $yeardata['img'], atts: ['class' => 'rg-exhibitions-year-featured-image'] );
-
-				$html_year[] = $html_year_img;
-
-			}
-
-			$html_year[] = sprintf('<h3 %s>%s</h3>', plura_attributes(['class' => 'rg-exhibitions-year-title']), $year);
-
-			$html[] = plura_wp_link(
-				html: implode("\n", $html_year),
-				target: $link . $year . '/' . $query_vars,
-				title: $year,
-				atts: [
-					'class' => 'rg-exhibitions-year',
-					'data-exhibition-year' => $year
-				]
-			);
-
-		}
-
-		return sprintf(
-			'<div %s>%s</div>',
-			plura_attributes(['class' => 'rg-exhibitions-years']),
-			implode("\n", $html)
+		$html[] = plura_wp_link(
+			html: implode("\n", $html_year),
+			target: $link . $row->year . '/' . $query_vars,
+			title: $row->year,
+			atts: [
+				'class' => 'rg-exhibitions-year',
+				'data-exhibition-year' => $row->year
+			]
 		);
 
 	}
 
-	return '';
+	return sprintf(
+		'<div %s>%s</div>',
+		plura_attributes(['class' => 'rg-exhibitions-years']),
+		implode("\n", $html)
+	);
 
 }
 

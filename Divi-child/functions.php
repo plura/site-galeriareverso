@@ -71,11 +71,11 @@ add_filter('plura_wp_breadcrumbs', function( ?array $crumbs, $object, ?string $c
 
 
 
-add_filter('plura_wp_title', function( $text ) {
+add_filter('plura_wp_title', function( string $text, WP_Term|WP_Post|int $object, ?string $context ) {
 
     global $wp_query;
 
-    if( is_page() && plura_wpml_id() === RG_PAGE_EXHIBITIONS_ID && $wp_query->get('rg_exhibition_year') ) {
+    if( $context === 'plura-wp-component-banner' && is_page() && plura_wpml_id() === RG_PAGE_EXHIBITIONS_ID && $wp_query->get('rg_exhibition_year') ) {
 
         return $wp_query->get('rg_exhibition_year');
 
