@@ -1,5 +1,0 @@
-	"linters": {
-		"jshint": {
-			"esversion": 6
-	    }
-	}
