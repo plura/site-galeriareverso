@@ -120,9 +120,3 @@ function rg_wpml_lang_switcher_rewrite_fix( $languages ) {
 	return $languages;
 
 }
-
-
-add_action('admin_init', function() {
-	global $wp_rewrite;
-	echo '<pre>' . print_r($wp_rewrite->wp_rewrite_rules(), true) . '</pre>';
-});

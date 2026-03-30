@@ -376,12 +376,12 @@ function rg_exhibition_datetime( int $id, bool $date = true, bool $opening = tru
 
 	$html = [];
 
-	$clss = ['rg-datetime-item'];
+	$classes = ['rg-datetime-item'];
 
 
 	if( $date && isset( $data['date_start'] ) ) {
 
-		$atts = ['class' => ['start-end', ...$clss] ];
+		$atts = ['class' => ['start-end', ...$classes] ];
 
 		$start = wp_date( __('j F Y', 'rg'), DateTime::createFromFormat('d/m/Y', $data['date_start'])->getTimestamp() );
 
@@ -437,7 +437,7 @@ function rg_exhibition_datetime( int $id, bool $date = true, bool $opening = tru
 
 		}
 
-		$atts = ['class' => ['opening', ...$clss], 'data-label' => __('Opening', 'rg') ];
+		$atts = ['class' => ['opening', ...$classes], 'data-label' => __('Opening', 'rg') ];
 
 		$html[] = sprintf(
 			'<div %s> <div %s>%s</div> %s </div>',
