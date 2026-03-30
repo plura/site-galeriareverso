@@ -4,7 +4,7 @@
  * Plugin Name: Galeria Reverso
  * Description: Site specific code changes for site galeriareverso.com
  * Domain Path: /languages
- * Text Domain: galeriareverso
+ * Text Domain: rg
  */
 //http://www.sitepoint.com/including-javascript-in-plugins-or-themes/
 
