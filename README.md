@@ -5,17 +5,17 @@ Custom WordPress theme and plugin for [Galeria Reverso](https://galeriareverso.c
 ## Structure
 
 ```
-galeriareverso/   — Custom plugin: CPTs, shortcodes, business logic
-Divi-child/       — Divi child theme: CSS, JS, template customizations
-template/         — CF7 contact form HTML template
+plugin/     — Custom plugin: CPTs, shortcodes, business logic
+theme/      — Divi child theme: CSS, JS, template customizations
+template/   — CF7 contact form HTML template
 ```
 
 ## Deployment
 
 Files are deployed via FTP directly to the server. There is no local WordPress installation.
 
-- `galeriareverso/` → `public_html/wp-content/plugins/galeriareverso/`
-- `Divi-child/` → `public_html/wp-content/themes/Divi-child/`
+- `plugin/` → `public_html/v2/wp-content/plugins/galeriareverso/`
+- `theme/` → `public_html/v2/wp-content/themes/Divi-child/`
 
 SFTP config (`.vscode/sftp.json`) is gitignored — credentials are not stored in this repo.
 
