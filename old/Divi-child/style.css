@@ -1,0 +1,242 @@
+/*
+ Theme Name:     Plura Custom Divi Theme
+ Theme URI:      http://plura.pt/
+ Description:    Plura Custom Divi Theme
+ Author:         Plura
+ Author URI:     http://plura.pt
+ Template:       Divi
+*/
+ 
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+
+
+
+
+header nav .menu-item.wpml-ls-item.wpml-ls-first-item {
+    align-items: center;
+    /*padding-right: calc( 11px / 2);*/
+    position: relative;
+}
+
+header nav .menu-item.wpml-ls-item.wpml-ls-first-item::before {
+    background-color: white;
+    content: '';
+    display: block;
+    height: 10px;
+    left: 0;
+    position: absolute; 
+    width: 2px;
+}
+
+:is(.single-rg_object, .single-rg_publication) header nav .menu-item.wpml-ls-item.wpml-ls-first-item::before {
+    background-color: var(--rg-globals-color-grey-dark);
+}
+
+
+header nav .menu-item.wpml-ls-item:last-child {
+	padding-left: calc( 11px / 2);
+}
+
+
+@media (min-width: 991px) {
+
+
+    /* align menu left */
+    header .et_pb_menu .et_pb_menu_inner_container {
+        justify-content: space-between;
+    }
+
+    header .et_pb_menu .et_pb_menu_inner_container::after {
+        content: none;
+    }
+
+    header .et_pb_menu .et_pb_menu_inner_container > .et_pb_menu__wrap {
+        flex: unset;
+    }
+
+}
+
+
+
+
+
+/* HOME */
+rs-module#rg-banner-featured rs-slides rs-slide .rg-datetime .rg-datetime-item.start-end {
+    justify-content: flex-end;
+}
+
+
+
+
+
+/* SLIDESHOW */
+/* added via Layer Options > Custom CSS */
+/*rs-module rs-group#banner-title-subtitle {*/
+rs-module rs-group.banner-title-subtitle {
+    max-width: 1080px !important;
+    width: 80% !important;
+}
+
+rs-module.rg-banner .rg-banner-subtitle .rg-banner-subtitle-path {
+    color: white;
+}
+
+rs-module.rg-banner .rg-banner-subtitle .rg-banner-subtitle-path:not(:last-child)::after {
+    content: '/';
+    margin: 0 5px;
+}
+
+
+
+
+/* ARTISTS */
+.wpmlobj-id-1727 .rg-eg-holder .esg-grid .tp-esg-item .esg-entry-media .esg-media-poster {
+    filter: grayscale(100%);
+}
+
+.wpmlobj-id-1727 .rg-eg-holder .esg-grid .tp-esg-item:hover .esg-entry-media .esg-media-poster {
+    filter: grayscale(0%);
+}
+
+
+/*
+@media screen and (max-width: 767px) {
+
+    .wpmlobj-id-1727 .rg-eg-holder .esg-grid li[data-skin="artists"] {
+
+        width: calc( ( 100% - 10px ) / 2 ) !important;
+    }
+
+     .wpmlobj-id-1727 .rg-eg-holder .esg-grid li[data-skin="artists"] .esg-entry-content {
+        min-height: 60px !important;
+     }
+
+}*/
+
+
+
+
+
+/* CONTACTS */
+.wpmlobj-id-1732 #map-holder {
+    aspect-ratio: 1/1;
+    /*min-height: 400px;*/
+}
+
+
+
+@media (min-width: 768px) {
+
+    .wpmlobj-id-1732 .rg-row {
+        --gap: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .wpmlobj-id-1732 .rg-row::after {
+        display: none;
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column {
+        margin-right: 0;
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column {
+        --n: calc( (100% - var(--gap) * 2) / 2 );
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column:nth-child(1),
+    .wpmlobj-id-1732 .rg-row .et_pb_column:nth-child(2) {
+        width: var(--n);
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column:nth-child(3) {
+        width: 100%;
+    }
+
+     .wpmlobj-id-1732 .rg-row .rg-blurb-contacts .et_pb_blurb_content {
+        margin: 0;
+     }
+
+}
+
+@media (min-width: 991px) {
+
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column {
+        --n: calc( (100% - var(--gap) * 2) / 10 );
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column:nth-child(1) {
+        width: calc( 2 * var(--n) );
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column:nth-child(2) {
+        width: calc( 3 * var(--n) );
+    }
+
+    .wpmlobj-id-1732 .rg-row .et_pb_column:nth-child(3) {
+        width: calc( 5 * var(--n) );
+    }
+
+}
+
+
+
+/* CONTACTS FOLDER */
+
+
+
+
+
+
+/* FOOTER */
+footer .rg-social-media a:not(:last-child) {
+    margin-right: 10px;
+}
+
+@media (min-width: 991px) {
+
+    footer .et_pb_row:first-child {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .et_pb_row:first-child::after {
+        content: none;
+    }
+
+    footer .et_pb_row:first-child .et_pb_column {
+        width: auto !important;
+    }
+
+}
+
+
+footer .et_pb_menu .menu-item {
+    margin-top: 0 !important;
+    line-height: 1.7em;
+}
+
+footer .et_pb_menu .menu-item a {
+    padding-bottom: 0 !important;
+}
+
+@media all and (max-width: 980px) {
+
+    footer .et_pb_menu .et_pb_menu__menu {
+        display: block;
+    }
+
+    footer .et_pb_menu .et_mobile_nav_menu {
+        display: none;
+    }
+
+    footer .et_pb_menu--style-left_aligned.et_pb_text_align_right .et_pb_menu__wrap {
+        justify-content: center;
+    }
+
+}

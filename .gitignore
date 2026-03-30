@@ -1,11 +1,4 @@
-# Ignore everything
-*
-
-# Unignore only what we want
-!.gitignore
-!template/
-!template/**
-!galeriareverso/
-!galeriareverso/**
-!Divi-child/
-!Divi-child/**
+.vscode/
+sftp-config.json
+sftp copy.json
+---sftp.json
