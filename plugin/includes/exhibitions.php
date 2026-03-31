@@ -259,7 +259,7 @@ add_filter('plura_wp_posts_query', function (array $query_params, array $args) {
 
 			}
 
-			if( !in_array($params_key, $query_params) ) {
+			if( !array_key_exists($params_key, $query_params) ) {
 
 				$query_params[$params_key] = $params_group;
 
