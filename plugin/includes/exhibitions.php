@@ -128,14 +128,18 @@ function rg2_exhibitions_years_grid(array $exclude = [], string $link = '' ) :st
 	// Build optional exclude clause (by taxonomy term IDs)
 	$exclude_clause = '';
 	if( !empty( $exclude ) ) {
-		$ids = implode( ',', array_map( 'intval', (array) $exclude ) );
-		$exclude_clause = "AND p.ID NOT IN (
-			SELECT object_id
-			FROM {$wpdb->term_relationships} tr
-			INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-			WHERE tt.taxonomy = 'rg_exhibitions_category'
-			AND tt.term_id IN ($ids)
-		)";
+		$ids_array = array_map( 'intval', (array) $exclude );
+		$placeholders = implode( ',', array_fill( 0, count( $ids_array ), '%d' ) );
+		$exclude_clause = $wpdb->prepare(
+			"AND p.ID NOT IN (
+				SELECT object_id
+				FROM {$wpdb->term_relationships} tr
+				INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+				WHERE tt.taxonomy = 'rg_exhibitions_category'
+				AND tt.term_id IN ($placeholders)
+			)",
+			...$ids_array
+		);
 	}
 
 	// Filter by current WPML language if active
@@ -334,6 +338,8 @@ function rg2_exhibition_artists( int $exhibitionID ) {
 		return sprintf('<div %s>%s</div>', plura_attributes( $atts ), implode('', $html) );
 
 	}
+
+	return '';
 
 }
 

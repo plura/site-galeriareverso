@@ -107,7 +107,7 @@ add_shortcode('rg2-publication-info', function( $args ) {
 
 		$atts['id'] = is_numeric($atts['id']) ? (int) $atts['id'] : get_the_ID();
 
-		$meta = array_filter( rg2_publication_meta(), fn( $value ) => $value['key'] !== 'rg_object_title');
+		$meta = array_filter( rg_publication_meta(), fn( $value ) => $value['key'] !== 'rg_object_title');
 
 		return plura_wp_post_meta(post: $atts['id'], meta: $meta, label_as_data_attr: true);
 
