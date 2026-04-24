@@ -1,4 +1,5 @@
 .vscode/
+!.vscode/sftp.json.example
 sftp-config.json
 sftp copy.json
 ---sftp.json

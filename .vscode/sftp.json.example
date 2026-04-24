@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Plugin",
+        "host": "",
+        "protocol": "ftp",
+        "port": 21,
+        "username": "",
+        "password": "",
+        "context": "plugin",
+        "remotePath": "/public_html/v2/wp-content/plugins/galeriareverso",
+        "uploadOnSave": false,
+        "useTempFile": false,
+        "openSsh": false,
+        "secure": true,
+        "secureOptions": {
+            "rejectUnauthorized": false
+        }
+    },
+    {
+        "name": "Theme",
+        "host": "",
+        "protocol": "ftp",
+        "port": 21,
+        "username": "",
+        "password": "",
+        "context": "theme",
+        "remotePath": "/public_html/v2/wp-content/themes/galeriareverso",
+        "uploadOnSave": false,
+        "useTempFile": false,
+        "openSsh": false,
+        "secure": true,
+        "secureOptions": {
+            "rejectUnauthorized": false
+        }
+    }
+]
