@@ -8,20 +8,23 @@ define("RG_THEME_IMAGE_DEFAULT_ID", 1721);
 
 function rg_theme_enqueue_styles() {
 
-    wp_enqueue_style( 'rg-theme-base',       get_stylesheet_directory_uri() . '/includes/css/base.css' );
-    wp_enqueue_style( 'rg-theme-layout',     get_stylesheet_directory_uri() . '/includes/css/layout.css' );
-    wp_enqueue_style( 'rg-theme-divi',       get_stylesheet_directory_uri() . '/includes/css/divi.css' );
-    wp_enqueue_style( 'rg-theme-deprecated', get_stylesheet_directory_uri() . '/includes/css/deprecated.css' );
+    $dir = get_stylesheet_directory();
 
-    wp_enqueue_script('rg-theme-core', get_stylesheet_directory_uri() . '/includes/js/scripts.js', ['jquery'] );
+    plura_wp_enqueue(scripts: [
+        $dir . '/includes/css/base.css'       => ['handle' => 'rg-theme-base'],
+        $dir . '/includes/css/layout.css'     => ['handle' => 'rg-theme-layout'],
+        $dir . '/includes/css/divi.css'       => ['handle' => 'rg-theme-divi'],
+        $dir . '/includes/css/deprecated.css' => ['handle' => 'rg-theme-deprecated'],
+        $dir . '/includes/js/scripts.js'      => ['handle' => 'rg-theme-core', 'deps' => ['jquery']],
+    ], admin: false);
 
-    if( is_page( [1732, 1743] ) ) {  
+    if( is_page( [1732, 1743] ) ) {
 
-		wp_enqueue_style( 'leaflet', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');    
-
-		wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js');
-
-		wp_enqueue_script('leaflet-providers', get_stylesheet_directory_uri() . '/includes/js/leaflet-providers.js', ['leaflet'] );
+        plura_wp_enqueue(scripts: [
+            'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'  => ['handle' => 'leaflet'],
+            'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'   => ['handle' => 'leaflet'],
+            $dir . '/includes/js/leaflet-providers.js'          => ['handle' => 'leaflet-providers', 'deps' => ['leaflet']],
+        ], admin: false);
 
     }
 
