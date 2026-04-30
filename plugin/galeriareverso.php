@@ -78,9 +78,7 @@ function rg_styles_and_scripts()
 	// wp_enqueue_script('p',  plugins_url( "/p/js/p.js", __FILE__ ) );
 
 	$scripts = [
-		/* __DIR__ . '/assets/css/styles.css' => ['handle' => 'rg-core'], */
-		__DIR__ . '/assets/css/globals.css' => ['handle' => 'rg-globals'],
-		__DIR__ . '/assets/css/globals-theme.css' => ['handle' => 'rg-globals-theme'],
+		__DIR__ . '/assets/css/styles.css' => ['handle' => 'rg-styles'],
 		__DIR__ . '/assets/js/lightbox.js' => ['handle' => 'rg-lightbox'],
 		__DIR__ . '/assets/js/scripts.js' => ['handle' => 'rg-core']
 	];

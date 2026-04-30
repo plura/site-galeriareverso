@@ -1,0 +1,116 @@
+:root {
+
+	--rg-globals-theme-border-radius: 5px;
+	--rg-banner-h: 400px;
+
+	/* ========================
+	   COLORS
+	   ======================== */
+
+	--rg-globals-theme-colors-color1: #f47820;
+	--rg-globals-theme-colors-background: #f9f9f9;
+	--rg-globals-theme-colors-text: #111;
+
+	/* ========================
+	   TYPOGRAPHY
+	   ======================== */
+
+	/* -- Font Families -- */
+	--rg-globals-theme-fonts-family-body: "Montserrat", sans-serif;
+	--rg-globals-theme-fonts-family-heading: "Montserrat", sans-serif;
+
+	/* -- Font Sizes (with clamp for responsiveness) -- */
+	--rg-globals-theme-fonts-size-h1: clamp(2.25rem, 5vw, 3.25rem);
+	--rg-globals-theme-fonts-size-h2: clamp(2rem, 4.5vw, 2.75rem);
+	--rg-globals-theme-fonts-size-h3: clamp(1.75rem, 3.5vw, 2.25rem);
+	--rg-globals-theme-fonts-size-h4: clamp(1.5rem, 3vw, 2rem);
+	--rg-globals-theme-fonts-size-h5: clamp(1.25rem, 2.5vw, 1.5rem);
+	--rg-globals-theme-fonts-size-h6: clamp(1rem, 1.5vw, 1.25rem);
+
+	--rg-globals-theme-fonts-size-body:             clamp(0.875rem, 1vw, 0.9375rem);    /* 14–15px */
+	--rg-globals-theme-fonts-size-body-small:       clamp(0.75rem, 0.9vw, 0.875rem);    /* 12–14px */
+	--rg-globals-theme-fonts-size-body-extra-small: clamp(0.625rem, 0.8vw, 0.75rem);    /* 10–12px */
+
+	/* -- Line Heights -- */
+	--rg-globals-theme-fonts-line-height-heading: 1.2;
+	--rg-globals-theme-fonts-line-height-body: 1.4;
+
+	/* -- Font Weights -- */
+	--rg-globals-theme-fonts-weight-thin: 100;
+	--rg-globals-theme-fonts-weight-extralight: 200;
+	--rg-globals-theme-fonts-weight-light: 300;
+	--rg-globals-theme-fonts-weight-normal: 400;
+	--rg-globals-theme-fonts-weight-medium: 500;
+	--rg-globals-theme-fonts-weight-semibold: 600;
+	--rg-globals-theme-fonts-weight-bold: 700;
+	--rg-globals-theme-fonts-weight-extrabold: 800;
+	--rg-globals-theme-fonts-weight-black: 900;
+
+	/* -- Letter Spacing -- */
+	--rg-globals-theme-fonts-letter-spacing-wide: 0.05em;
+
+	/* ========================
+	   ANIM
+	   ======================== */
+
+	--rg-globals-theme-anim-speed: .4s;
+
+}
+
+
+header :is( .menu-item > a, .menu-item > a > span ) {
+	text-transform: uppercase;
+	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+}
+
+
+/* ========================================
+   Base Typography + Color
+   ======================================== */
+
+body {
+	background-color: var(--rg-globals-theme-colors-background);
+}
+
+a, abbr, acronym, address, applet, b, big, blockquote, body, center,
+cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form,
+h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, kbd, label,
+legend, li, object, ol, p, pre, q, s, samp, small, span, strike,
+strong, sub, sup, tt, u, ul, var {
+	font-family: var(--rg-globals-theme-fonts-family-body);
+	font-size: var(--rg-globals-theme-fonts-size-body);
+	line-height: var(--rg-globals-theme-fonts-line-height-body);
+	font-weight: var(--rg-globals-theme-fonts-weight-normal);
+	color: var(--rg-globals-theme-colors-text);
+}
+
+
+/* ========================================
+   Headings
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--rg-globals-theme-fonts-family-heading);
+	font-weight: var(--rg-globals-theme-fonts-weight-semibold);
+	font-size: inherit;
+	line-height: var(--rg-globals-theme-fonts-line-height-heading);
+	text-wrap: balance;
+}
+
+h1 { font-size: var(--rg-globals-theme-fonts-size-h1); }
+h2 { font-size: var(--rg-globals-theme-fonts-size-h2); }
+h3 { font-size: var(--rg-globals-theme-fonts-size-h3); }
+h4 { font-size: var(--rg-globals-theme-fonts-size-h4); }
+h5 { font-size: var(--rg-globals-theme-fonts-size-h5); }
+h6 { font-size: var(--rg-globals-theme-fonts-size-h6); }
+
+
+/* ========================================
+   Links
+   ======================================== */
+
+a:not(.plura-wp-post) {
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+	color: var(--rg-globals-theme-colors-color1);
+}
