@@ -3,6 +3,17 @@
    ======================================== */
 
 
+/* Posts - RG Artist */
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post .plura-wp-post-featured-image {
+	filter: grayscale(1);
+	transition: filter var(--rg-globals-theme-anim-speed) ease-out;
+}
+
+.plura-wp-posts[data-type="rg_artist"] .plura-wp-post:hover .plura-wp-post-featured-image {
+	filter: grayscale(0);
+}
+
+
 /* Common: Posts' Grids - Title */
 .plura-wp-posts:is(
 	[data-type="rg_artist"],
