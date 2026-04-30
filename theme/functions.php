@@ -13,6 +13,7 @@ function rg_theme_enqueue_styles() {
     $scripts = [
         $dir . '/includes/css/base.css'       => ['handle' => 'rg-theme-base'],
         $dir . '/includes/css/layout.css'     => ['handle' => 'rg-theme-layout'],
+        $dir . '/includes/css/posts.css'      => ['handle' => 'rg-theme-posts'],
         $dir . '/includes/css/divi.css'       => ['handle' => 'rg-theme-divi'],
         $dir . '/includes/css/deprecated.css' => ['handle' => 'rg-theme-deprecated'],
         $dir . '/includes/js/scripts.js'      => ['handle' => 'rg-theme-core', 'deps' => ['jquery']],
