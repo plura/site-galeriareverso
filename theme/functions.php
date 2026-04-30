@@ -8,9 +8,10 @@ define("RG_THEME_IMAGE_DEFAULT_ID", 1721);
 
 function rg_theme_enqueue_styles() {
 
-    wp_enqueue_style( 'rg-theme-base',   get_stylesheet_directory_uri() . '/includes/css/base.css' );
-    wp_enqueue_style( 'rg-theme-layout', get_stylesheet_directory_uri() . '/includes/css/layout.css' );
-    wp_enqueue_style( 'rg-theme-divi',   get_stylesheet_directory_uri() . '/includes/css/divi.css' );
+    wp_enqueue_style( 'rg-theme-base',       get_stylesheet_directory_uri() . '/includes/css/base.css' );
+    wp_enqueue_style( 'rg-theme-layout',     get_stylesheet_directory_uri() . '/includes/css/layout.css' );
+    wp_enqueue_style( 'rg-theme-divi',       get_stylesheet_directory_uri() . '/includes/css/divi.css' );
+    wp_enqueue_style( 'rg-theme-deprecated', get_stylesheet_directory_uri() . '/includes/css/deprecated.css' );
 
     wp_enqueue_script('rg-theme-core', get_stylesheet_directory_uri() . '/includes/js/scripts.js', ['jquery'] );
 

@@ -96,58 +96,6 @@ header nav .menu-item.wpml-ls-item:last-child {
 
 
 /* ========================================
-   Home
-   ======================================== */
-
-rs-module#rg-banner-featured rs-slides rs-slide .rg-datetime .rg-datetime-item.start-end {
-	justify-content: flex-end;
-}
-
-
-/* ========================================
-   Slideshow (RevSlider)
-   ======================================== */
-
-rs-module rs-group.banner-title-subtitle {
-	max-width: 1080px !important;
-	width: 80% !important;
-}
-
-rs-module.rg-banner .rg-banner-subtitle .rg-banner-subtitle-path {
-	color: white;
-}
-
-rs-module.rg-banner .rg-banner-subtitle .rg-banner-subtitle-path:not(:last-child)::after {
-	content: '/';
-	margin: 0 5px;
-}
-
-rs-module.rg-banner .plura-wp-title {
-	color: white;
-	line-height: var(--rg-globals-theme-fonts-line-height-heading) !important;
-	text-align: right !important;
-}
-
-rs-module.rg-banner :is(.plura-wp-title, .plura-wp-breadcrumb, .plura-wp-breadcrumb-link) {
-	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide) !important;
-}
-
-rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb .plura-wp-breadcrumb-link,
-rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child)::after {
-	color: white;
-}
-
-rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child),
-rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child)::after {
-	display: inline-block;
-}
-
-rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child)::after {
-	margin-left: calc( var(--plura-wp-breadcrumb-gap) * 2 );
-}
-
-
-/* ========================================
    Banner Component
    ======================================== */
 
@@ -156,19 +104,6 @@ rs-module.rg-banner .plura-wp-breadcrumbs .plura-wp-breadcrumb:not(:last-child):
 	font-size: var(--rg-globals-theme-fonts-size-h1);
 	font-weight: var(--rg-globals-theme-fonts-weight-bold);
 	line-height: var(--rg-globals-theme-fonts-line-height-heading);
-}
-
-
-/* ========================================
-   Artists (Essential Grid)
-   ======================================== */
-
-.wpmlobj-id-1727 .rg-eg-holder .esg-grid .tp-esg-item .esg-entry-media .esg-media-poster {
-	filter: grayscale(100%);
-}
-
-.wpmlobj-id-1727 .rg-eg-holder .esg-grid .tp-esg-item:hover .esg-entry-media .esg-media-poster {
-	filter: grayscale(0%);
 }
 
 
