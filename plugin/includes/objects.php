@@ -280,22 +280,6 @@ add_filter('plura_wp_title', function (string $title, WP_Post|WP_Term $post, ?st
 }, 10, 3);
 
 
-// Filter to modify the post meta value for rg_object_artist. Note: This is commented out as it is not be needed in the current context.
-// I'm using 'rg_object_meta' to handle the artist link instead.
-/* add_filter('plura_wp_post_meta_item_value', function (mixed $value, WP_Post $post, string $meta_key, ?string $context) {
-
-	if (get_post_type($post) === 'rg_object' && $meta_key === 'rg_object_artist') {
-
-		$artist = get_field('rg_object_artist', $post->ID);
-
-		if ($artist) {
-
-			$value = plura_wp_link(html: $artist->post_title, target: $artist);
-		}
-	}
-
-	return $value;
-}, 10, 4); */
 
 
 add_filter( 'plura_wp_post_featured_image', function( $html, $post, $size, $atts ) {
