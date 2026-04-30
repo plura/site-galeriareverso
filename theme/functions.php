@@ -10,23 +10,26 @@ function rg_theme_enqueue_styles() {
 
     $dir = get_stylesheet_directory();
 
-    plura_wp_enqueue(scripts: [
+    $scripts = [
         $dir . '/includes/css/base.css'       => ['handle' => 'rg-theme-base'],
         $dir . '/includes/css/layout.css'     => ['handle' => 'rg-theme-layout'],
         $dir . '/includes/css/divi.css'       => ['handle' => 'rg-theme-divi'],
         $dir . '/includes/css/deprecated.css' => ['handle' => 'rg-theme-deprecated'],
         $dir . '/includes/js/scripts.js'      => ['handle' => 'rg-theme-core', 'deps' => ['jquery']],
-    ], admin: false);
+    ];
 
     if( is_page( [1732, 1743] ) ) {
 
-        plura_wp_enqueue(scripts: [
-            'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'  => ['handle' => 'leaflet'],
-            'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'   => ['handle' => 'leaflet'],
-            $dir . '/includes/js/leaflet-providers.js'          => ['handle' => 'leaflet-providers', 'deps' => ['leaflet']],
-        ], admin: false);
+        $scripts = [
+            ...$scripts,
+            'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' => ['handle' => 'leaflet'],
+            'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js'  => ['handle' => 'leaflet'],
+            $dir . '/includes/js/leaflet-providers.js'         => ['handle' => 'leaflet-providers', 'deps' => ['leaflet']],
+        ];
 
     }
+
+    plura_wp_enqueue(scripts: $scripts, admin: false);
 
 }
 
