@@ -32,7 +32,7 @@ add_shortcode('rg-theme-slider-intro', function( $args ) {
 } );
 
 
-add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $context = null, array $original): array {
+add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $context = null, ?int $index = null, array $original = []): array {
 
 	if ( in_array( $context, [RG_HOME_SLIDE_CONTEXT, RG_HOME_SLIDE_CONTEXT . '-thumbs'] ) && in_array( get_post_type($post), ['rg_exhibition', 'page'] ) ) {
 

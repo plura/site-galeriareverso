@@ -83,7 +83,7 @@ add_filter('plura_wp_title', function( string $text, WP_Term|WP_Post|int $object
 
     return $text;
 
-}, 1, 10);
+}, 10, 3);
 
 
 
