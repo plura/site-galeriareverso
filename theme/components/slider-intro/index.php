@@ -127,20 +127,3 @@ add_filter('plura_wp_post_atts', function(array $atts, WP_Post $post, ?string $c
 	return $atts;
 
 }, 10, 3);
-
-/* 
-$atts = apply_filters('plura_wp_post_atts', $atts, $post, $context); */
-
-
-
-/*
-		$context === 'rg-theme-slider-intro-thumbs' ? "medium" : "full";
-
-
-
-		if( !$result ) {
-
-			return plura_wp_image(attachment: RG_THEME_IMAGE_DEFAULT_ID, size: $size, atts: $atts);
-
-		}
-*/
