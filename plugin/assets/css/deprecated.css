@@ -1,0 +1,28 @@
+/* ========================================
+   DEPRECATED
+   Rules depending on Revolution Slider (rs-layer).
+   To be removed once RevSlider is replaced — the
+   simplified versions without rs-layer live in styles.css.
+   ======================================== */
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-title {
+	font-size: var(--rg-globals-theme-fonts-size-body);
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide);
+	text-transform: uppercase;
+}
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-meta {
+	gap: calc( var(--plura-wp-post-gap) / 3 ) calc( var(--plura-wp-post-gap) );
+	display: grid;
+	grid-template-columns: min-content auto;
+}
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-meta .plura-wp-post-meta-item {
+	display: contents;
+}
+
+:not(.plura-wp-post, rs-layer) > .plura-wp-post-meta .plura-wp-post-meta-item[data-label]::before {
+	content: attr(data-label)':';
+	font-weight: var(--rg-globals-theme-fonts-weight-bold);
+}
