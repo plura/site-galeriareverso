@@ -211,6 +211,17 @@ add_filter('plura_wp_posts_query', function (array $query_params, array $args) {
 
 
 
+add_filter('plura_wp_post_meta', function( array $meta, WP_Post $post, ?string $context ): array {
+
+	if( $context === 'rg-theme-slider-intro-shop' ) {
+		return array_intersect_key( $meta, array_flip(['title', 'type', 'artist']) );
+	}
+
+	return $meta;
+
+}, 10, 3);
+
+
 // Filter to modify the post entry for rg_object posts
 add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $context = null): array {
 
