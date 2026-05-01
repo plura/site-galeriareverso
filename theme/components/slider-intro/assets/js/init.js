@@ -2,8 +2,8 @@ import introAnimation from './animations/intro.js';
 
 const setatts = (el, params) => Object.entries(params).forEach(([key, value]) => el?.setAttribute(`data-${key}`, value));
 
-const slides = document.querySelectorAll('.rg-slider :is(.swiper-slide, .plura-wp-post)');
-const thumbs = document.querySelectorAll('.rg-slider-thumbs :is(.swiper-slide, .plura-wp-post)');
+const slides = document.querySelectorAll('.rg-slider > .plura-wp-post');
+const thumbs = document.querySelectorAll('.rg-slider-thumbs > .plura-wp-post');
 
 [...slides, ...thumbs].forEach(element => element.classList.add(...['swiper-slide', 'rg-slide']));
 
