@@ -82,7 +82,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 	}
 
 	return $entry;
-}, 10, 4);
+}, 10, 5);
 
 
 add_filter('plura_wp_post_featured_image', function( ?string $result, WP_Post $post, string $size, array $atts, ?string $context = null ) {  
