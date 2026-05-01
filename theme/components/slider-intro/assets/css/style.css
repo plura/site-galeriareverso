@@ -18,7 +18,7 @@ body {
 	overflow: hidden;
 }
 
-:is(.rg-slider, .rg-slider-thumbs) .plura-wp-image {
+:is(.rg-slider, .rg-slider-thumbs) .swiper-slide > .plura-wp-image {
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
@@ -53,6 +53,10 @@ body {
 /* Slide content */
 .rg-slider .swiper-slide > :is(.plura-wp-image, .plura-wp-title, .rg-datetime) {
 	position: absolute;
+}
+
+.rg-slider .swiper-slide > .plura-wp-image {
+	left: 0;
 }
 
 .rg-slider .swiper-slide > :is(.plura-wp-title, .rg-datetime) {
