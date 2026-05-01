@@ -204,7 +204,6 @@ add_filter('plura_wp_posts_query', function (array $query_params, array $args) {
 			);
 		}
 
-		//print_r($args);
 	}
 
 	return $query_params;
