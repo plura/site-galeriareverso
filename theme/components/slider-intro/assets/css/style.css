@@ -92,6 +92,25 @@ body {
    Individual Slides
    ======================================== */
 
+/* Shop */
+.rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts {
+	position: relative;
+	z-index: 1;
+}
+
+.rg-slider .swiper-slide .plura-wp-posts[data-type="rg_object"] {
+	--plura-wp-posts-cols: 3;
+}
+
+.rg-slider .swiper-slide .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
+	aspect-ratio: 1 / 1;
+}
+
+.rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] * {
+	color: white;
+}
+
+
 /* Intro */
 .rg-slider .rg-slide.rg-intro #rg-logo {
 	left: 50%;
