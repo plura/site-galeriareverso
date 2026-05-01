@@ -38,6 +38,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 
 		return [
 			'featured-image' => $original['featured-image'] ?? null,
+			'title' => $original['title'] ?? null,
 			'posts' => plura_wp_posts(
 				type: 'rg_object',
 				params: ['shop' => true],
@@ -45,7 +46,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 				limit: 6,
 				context: 'rg-theme-slider-intro-shop',
 				link: -1,
-				wrap: false
+				wrap: true
 			),
 		];
 
@@ -100,6 +101,17 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 
 	return $entry;
 }, 10, 5);
+
+
+add_filter('plura_wp_post_meta', function( array $meta, WP_Post $_post, ?string $context ): array {
+
+	if( $context === 'rg-theme-slider-intro-shop' ) {
+		return array_intersect_key( $meta, array_flip(['title', 'type', 'artist']) );
+	}
+
+	return $meta;
+
+}, 10, 3);
 
 
 add_filter('plura_wp_post_featured_image', function( ?string $result, WP_Post $post, string $size, array $atts, ?string $context = null ) {  
