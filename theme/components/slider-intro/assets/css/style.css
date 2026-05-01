@@ -35,6 +35,7 @@ body {
 
 .rg-slider .swiper-slide {
 	display: block;
+	padding-inline: calc( ( 100dvw - var(--rg-globals-theme-width) ) / 2 );
 }
 
 
@@ -94,7 +95,6 @@ body {
 
 /* Shop */
 .rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts {
-	padding-inline: calc( ( 100dvw - var(--rg-globals-theme-width) ) / 2 );
 	position: relative;
 	z-index: 1;
 }
