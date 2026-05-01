@@ -216,6 +216,12 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 
 	if (get_post_type($post) === 'rg_object') {
 
+		if( $context === 'rg-theme-slider-intro-shop' ) {
+			return [
+				'featured-image' => $entry['featured-image'] ?? null,
+			];
+		}
+
 		$a = [];
 
 		foreach(['featured-image', 'title'] as $key) {

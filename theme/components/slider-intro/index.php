@@ -34,6 +34,23 @@ add_shortcode('rg-theme-slider-intro', function( $args ) {
 
 add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $context = null, ?int $index = null, array $original = []): array {
 
+	if ( $context === RG_HOME_SLIDE_CONTEXT && plura_wpml_id( $post->ID ) === RG_PAGE_SHOP_ID ) {
+
+		return [
+			'featured-image' => $original['featured-image'] ?? null,
+			'posts' => plura_wp_posts(
+				type: 'rg_object',
+				params: ['shop' => true],
+				rand: true,
+				limit: 6,
+				context: 'rg-theme-slider-intro-shop',
+				link: -1,
+				wrap: false
+			),
+		];
+
+	}
+
 	if ( in_array( $context, [RG_HOME_SLIDE_CONTEXT, RG_HOME_SLIDE_CONTEXT . '-thumbs'] ) && in_array( get_post_type($post), ['rg_exhibition', 'page'] ) ) {
 
 		$a = [];
