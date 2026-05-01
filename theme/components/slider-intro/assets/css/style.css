@@ -2,8 +2,8 @@
 
 	--rg-slider-title-pos: calc( var(--plura-wp-gap) * 4 );
 	--rg-slider-thumb-height: 60px;
-	--rg-slider-thumb-ratio: 2 / 3;
-	--rg-slider-thumb-ratio-inverse: 3 / 2;
+	--rg-slider-thumb-ratio: calc(2/3); /* 2:3 */
+	--rg-slider-thumb-ratio-inverse: calc(1 / var(--rg-slider-thumb-ratio));
 
 }
 
