@@ -43,13 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	swiper_thumbs.controller.control = swiper;
 
 
-	thumbs.forEach((element, index) => {
+	// redundant: slideToClickedSlide + controller already handles thumb clicks
+	/* thumbs.forEach((element, index) => {
 
 		element.addEventListener('click', event => {
 			swiper.slideTo(index)
 		});
 
-	});
+	}); */
 
 
 	//animation
@@ -121,10 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		playTimelineForSlide(swiper.realIndex);
 	});
 
-	// on thumbs swiper (to catch manual clicks)
-	swiper_thumbs.on('slideChangeTransitionStart', () => {
+	// redundant: controller propagates thumb changes to main swiper, which fires its own event
+	/* swiper_thumbs.on('slideChangeTransitionStart', () => {
 		playTimelineForSlide(swiper.realIndex);
-	});
+	}); */
 
 	timelines[swiper.realIndex]?.play();
 
