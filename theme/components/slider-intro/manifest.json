@@ -14,7 +14,8 @@
 			"handle": "gsap-splittext"
 		},
 		"assets/js/init.js": {
-			"handle": "rg-init"
+			"handle": "rg-init",
+			"module": true
 		},
 		"assets/css/style.css": {
 			"handle": "rg-style"
