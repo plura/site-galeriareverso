@@ -107,16 +107,4 @@ add_filter('plura_wp_post_featured_image', function( ?string $result, WP_Post $p
 
 
 
-add_filter('rg-theme-component-intro', function( $atts ) {
-
-    //shop
-    $shop = plura_wp_posts(type: 'page', ids: 7435, context: 'rg-theme-component-intro', wrap: false);
-
-    //featured exhibitions
-    $exhibitions = plura_wp_posts(type: 'rg_exhibitions', terms: 14, taxonomy: 'rg_exhibitions_category', context: 'rg-theme-component-intro', wrap: false);
-   
-
-});
-
-
 
