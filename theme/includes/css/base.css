@@ -4,6 +4,12 @@
 	--rg-banner-h: 400px;
 
 	/* ========================
+	   LAYOUT
+	   ======================== */
+
+	--rg-globals-theme-width: var(--plura-wp-globals-theme-width);
+
+	/* ========================
 	   COLORS
 	   ======================== */
 
