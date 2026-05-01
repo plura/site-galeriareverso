@@ -42,7 +42,6 @@ body {
 
 .rg-slider .swiper-slide :is(.plura-wp-image, .plura-wp-title, .rg-datetime) {
     position: absolute;
-    z-index: auto;
 }
 
 .rg-slider .swiper-slide :is(.plura-wp-title, .rg-datetime) {
@@ -70,7 +69,6 @@ body {
 	align-items: flex-end;
 	bottom: var(--rg-slider-title-pos);
 	display: flex;
-	/* height: calc( 100dvh - var(--rg-slider-title-pos) ); */
 	justify-content: flex-end;
 	padding-bottom: 0;
 	text-align: right;
