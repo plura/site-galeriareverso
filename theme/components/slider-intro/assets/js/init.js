@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		setatts(slide.querySelector('.rg-datetime'), { 'swiper-parallax': -200 });
 		setatts(slide.querySelector('.plura-wp-breadcrumbs'), { 'swiper-parallax': -100 });
 
-
 	});
 
 
@@ -25,32 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		parallax: true,
 		slidesPerView: 1,
 		speed: 2000,
-		loop: false,
 	});
 
 
 	const swiper_thumbs = new Swiper('.rg-slider-thumbs', {
-		slidesPerView: 'auto'/* thumbs.length */,
+		slidesPerView: 'auto',
 		slideToClickedSlide: true,
 		spaceBetween: 20,
 		speed: 2000,
-		loop: false,
 		centeredSlides: true
 	});
 
 
 	swiper.controller.control = swiper_thumbs;
 	swiper_thumbs.controller.control = swiper;
-
-
-	// redundant: slideToClickedSlide + controller already handles thumb clicks
-	/* thumbs.forEach((element, index) => {
-
-		element.addEventListener('click', event => {
-			swiper.slideTo(index)
-		});
-
-	}); */
 
 
 	//animation
@@ -63,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			defaults: { ease: "power2.out", duration: 0.6 }
 		});
 
-		// --- Unique intro animation
 		if (type === 'intro') {
 			tl.from("#rg-logo-square", {
 				opacity: 0,
@@ -91,15 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			}, "-=0.3");
 		}
 
-		// --- Shared/global animation: fade in .plura-wp-title
-		const title = slide.querySelector('.plura-wp-title');
-		if (title) {
-			/* tl.fromTo(title, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1 }, 0); */
-		}
-
 		timelines[index] = tl;
 	});
-
 
 
 	const playTimelineForSlide = (activeIndex) => {
@@ -107,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (i === activeIndex) {
 				tl.play();
 			} else {
-				// Only reverse if it's currently playing forward
 				if (tl.progress() > 0 && !tl.reversed()) {
 					tl.reverse();
 				}
@@ -116,16 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 
-
-	// on main swiper
 	swiper.on('slideChangeTransitionStart', () => {
 		playTimelineForSlide(swiper.realIndex);
 	});
-
-	// redundant: controller propagates thumb changes to main swiper, which fires its own event
-	/* swiper_thumbs.on('slideChangeTransitionStart', () => {
-		playTimelineForSlide(swiper.realIndex);
-	}); */
 
 	timelines[swiper.realIndex]?.play();
 
