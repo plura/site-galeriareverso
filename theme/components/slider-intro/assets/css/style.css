@@ -105,7 +105,13 @@ body {
 }
 
 .rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] {
-	--plura-wp-posts-cols: 3;
+	--plura-wp-posts-cols: 2;
+}
+
+@media (min-width: 768px) {
+	.rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] {
+		--plura-wp-posts-cols: 3;
+	}
 }
 
 .rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
