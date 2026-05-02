@@ -36,6 +36,7 @@ body {
 .rg-slider .swiper-slide {
 	display: block;
 	padding-inline: calc( ( 100dvw - var(--rg-globals-theme-width) ) / 2 );
+	padding-top: var(--rg-globals-theme-header-h);
 }
 
 
