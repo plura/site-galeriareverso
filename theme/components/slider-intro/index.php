@@ -103,6 +103,17 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 }, 10, 5);
 
 
+add_filter('plura_wp_post', function( array $entry, WP_Post $_post, ?string $context ): array {
+
+	if( $context === 'rg-theme-slider-intro-shop' ) {
+		return array_intersect_key( $entry, array_flip(['featured-image', 'title', 'meta']) );
+	}
+
+	return $entry;
+
+}, 10, 3);
+
+
 add_filter('plura_wp_post_meta', function( array $meta, WP_Post $_post, ?string $context ): array {
 
 	if( $context === 'rg-theme-slider-intro-shop' ) {
