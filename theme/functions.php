@@ -16,7 +16,7 @@ function rg_theme_enqueue_styles() {
         $dir . '/includes/css/posts.css'      => ['handle' => 'rg-theme-posts'],
         $dir . '/includes/css/divi.css'       => ['handle' => 'rg-theme-divi'],
         $dir . '/includes/css/deprecated.css' => ['handle' => 'rg-theme-deprecated'],
-        $dir . '/includes/js/scripts.js'      => ['handle' => 'rg-theme-core', 'deps' => ['jquery']],
+        $dir . '/includes/js/scripts.js'      => ['handle' => 'rg-theme-core', 'deps' => ['jquery'], 'module' => true],
     ];
 
     if( is_page( [1732, 1743] ) ) {
