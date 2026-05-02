@@ -102,13 +102,13 @@ body {
 
 /* Shop */
 .rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts {
-	--plura-wp-posts-gap: 3vw;
 	position: relative;
 	z-index: 1;
 }
 
 .rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] {
 	--plura-wp-posts-cols: 2;
+	gap: 1vh 9vw;
 }
 
 @media (min-width: 768px) {
@@ -121,8 +121,12 @@ body {
 	aspect-ratio: 1 / 1;
 }
 
-.rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-post :is(.plura-wp-post-title, .plura-wp-post-meta .plura-wp-post-meta-item .plura-wp-post-meta-item-value) {
-	font-size: var(--rg-globals-theme-fonts-size-body-extra-small);
+.rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] :is(.plura-wp-link, .plura-wp-post-title, .plura-wp-post-meta-item-value) {
+	font-size: var(--rg-globals-theme-fonts-size-body-xxs);
+}
+
+.rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] :is(.plura-wp-post, .plura-wp-post-meta) {
+	gap: calc(var(--plura-wp-posts-gap) / 12);
 }
 
 .rg-slider .swiper-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] * {
