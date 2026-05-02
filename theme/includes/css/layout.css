@@ -261,11 +261,11 @@ footer .et_pb_menu .menu-item a {
 
 .wpcf7-form input[type="submit"] {
 	border: none;
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	font-weight: var(--rg-globals-theme-fonts-weight-extrabold);
 	text-transform: uppercase;
 }
 
 .wpcf7-form .wpcf7-not-valid-tip {
-	font-size: var(--rg-globals-theme-fonts-size-body-extra-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-xs);
 }

@@ -34,8 +34,8 @@
 	--rg-globals-theme-fonts-size-h6: clamp(1rem, 1.5vw, 1.25rem);
 
 	--rg-globals-theme-fonts-size-body:             clamp(0.875rem, 1vw, 0.9375rem);    /* 14–15px */
-	--rg-globals-theme-fonts-size-body-small:       clamp(0.75rem, 0.9vw, 0.875rem);    /* 12–14px */
-	--rg-globals-theme-fonts-size-body-extra-small: clamp(0.625rem, 0.8vw, 0.75rem);    /* 10–12px */
+	--rg-globals-theme-fonts-size-body-sm:       clamp(0.75rem, 0.9vw, 0.875rem);    /* 12–14px */
+	--rg-globals-theme-fonts-size-body-xs: clamp(0.625rem, 0.8vw, 0.75rem);    /* 10–12px */
 	--rg-globals-theme-fonts-size-body-xxs:         clamp(0.5rem, 0.65vw, 0.625rem);    /*  8–10px */
 
 	/* -- Line Heights -- */
@@ -67,7 +67,7 @@
 
 header :is( .menu-item > a, .menu-item > a > span ) {
 	text-transform: uppercase;
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	font-weight: var(--rg-globals-theme-fonts-weight-bold);
 }
 

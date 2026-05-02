@@ -20,7 +20,7 @@
 	[data-type="rg_exhibition"],
 	[data-type="rg_object"]
  ) .plura-wp-post .plura-wp-post-title {
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	font-weight: var(--rg-globals-theme-fonts-weight-light);
 }
 
@@ -35,7 +35,7 @@
 	.plura-wp-post-title,
 	.plura-wp-post-meta .plura-wp-post-meta-item .plura-wp-post-meta-item-value
  ) {
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide);
 	text-align: center;
 	text-transform: uppercase;
@@ -46,7 +46,7 @@
 :is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude][data-label]::before {
 	content: attr(data-label);
 	grid-column: 1 / -1;
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	font-weight: var(--rg-globals-theme-fonts-weight-bold);
 	letter-spacing: var(--rg-globals-theme-fonts-letter-spacing-wide);
 	text-transform: uppercase;
@@ -63,7 +63,7 @@
 }
 
 :is(.single-rg_object, .single-rg_publication) .plura-wp-posts[data-exclude] .plura-wp-post .plura-wp-post-meta .plura-wp-post-meta-item .plura-wp-post-meta-item-value {
-	font-size: var(--rg-globals-theme-fonts-size-body-extra-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-xs);
 }
 
 
@@ -92,7 +92,7 @@
 /* Artist / Exhibition */
 :is(.rg-artist-exhibitions, .rg-exhibition-artists),
 :is(.rg-artist-exhibitions, .rg-exhibition-artists) :is(.rg-artist-exhibition, .rg-exhibition-artist) {
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	font-weight: var(--rg-globals-theme-fonts-weight-bold);
 }
 
@@ -100,7 +100,7 @@
 /* Exhibition Datetime */
 .rg-datetime * {
 	font-family: var(--rg-globals-theme-fonts-family-body);
-	font-size: var(--rg-globals-theme-fonts-size-body-small);
+	font-size: var(--rg-globals-theme-fonts-size-body-sm);
 	font-weight: var(--rg-globals-theme-fonts-weight-bold);
 }
 
