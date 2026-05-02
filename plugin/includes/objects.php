@@ -219,8 +219,6 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 		if( $context === 'rg-theme-slider-intro-shop' ) {
 			return [
 				'featured-image' => $entry['featured-image'] ?? null,
-				'title'          => $entry['title'] ?? null,
-				'meta'           => plura_wp_post_meta(post: $post, meta: rg_object_meta(), label_as_data_attr: true, context: $context),
 			];
 		}
 
