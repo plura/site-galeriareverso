@@ -41,7 +41,8 @@ const headerRow = document.querySelector('header .et_pb_row');
 if( headerRow ) {
 
 	new ResizeObserver( ([entry]) => {
-		document.documentElement.style.setProperty('--rg-globals-theme-header-h', `${entry.contentRect.height}px`);
+		const h = entry.borderBoxSize?.[0]?.blockSize ?? entry.contentRect.height;
+		document.documentElement.style.setProperty('--rg-globals-theme-header-h', `${h}px`);
 	}).observe(headerRow);
 
 }

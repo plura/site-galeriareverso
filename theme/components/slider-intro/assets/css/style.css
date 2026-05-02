@@ -40,25 +40,26 @@ body {
 }
 
 
-/* Overlay */
-.rg-slider .swiper-slide::before {
-	background-color: rgba(0, 0, 0, .4);
-	content: '';
+/* Overlay + bg image shared positioning */
+.rg-slider .swiper-slide::before,
+.rg-slider .swiper-slide > .plura-wp-image {
 	height: 100%;
 	left: 0;
 	position: absolute;
+	top: 0;
 	width: 100%;
+}
+
+.rg-slider .swiper-slide::before {
+	background-color: rgba(0, 0, 0, .4);
+	content: '';
 	z-index: 1;
 }
 
 
 /* Slide content */
-.rg-slider .swiper-slide > :is(.plura-wp-image, .plura-wp-title, .rg-datetime) {
+.rg-slider .swiper-slide > :is(.plura-wp-title, .rg-datetime) {
 	position: absolute;
-}
-
-.rg-slider .swiper-slide > .plura-wp-image {
-	left: 0;
 }
 
 .rg-slider .swiper-slide > :is(.plura-wp-title, .rg-datetime) {
