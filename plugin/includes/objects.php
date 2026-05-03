@@ -296,3 +296,31 @@ add_filter( 'plura_wp_post_featured_image', function( $html, $post, $size, $atts
 	return $html;
 
 }, 10, 4 );
+
+
+add_action('rest_api_init', function() {
+
+	register_rest_route('rg/v1', '/objects/shop', [
+		'methods'             => 'GET',
+		'callback'            => function( WP_REST_Request $request ) {
+
+			$limit   = (int) ($request->get_param('limit') ?? 6);
+			$context = 'rg-theme-slider-intro-shop';
+
+			$html = plura_wp_posts(
+				type:    'rg_object',
+				params:  ['shop' => true],
+				rand:    true,
+				limit:   $limit,
+				context: $context,
+				link:    -1,
+				wrap:    true
+			);
+
+			return rest_ensure_response(['html' => $html]);
+
+		},
+		'permission_callback' => '__return_true',
+	]);
+
+});
