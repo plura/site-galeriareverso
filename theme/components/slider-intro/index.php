@@ -50,7 +50,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 						type: 'rg_object',
 						params: ['shop' => true],
 						rand: true,
-						limit: 6,
+						limit: 24,
 						context: 'rg-theme-slider-intro-shop',
 						link: -1,
 						wrap: true

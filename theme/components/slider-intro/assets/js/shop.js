@@ -1,6 +1,8 @@
 export default (postsEl) => {
 
-	postsEl.classList.add('swiper', 'rg-shop-swiper');
+	if (!postsEl) return;
+
+	postsEl.classList.add('swiper', 'rg-intro-shop-slider');
 
 	[...postsEl.querySelectorAll(':scope > .plura-wp-post')].forEach(post => {
 		post.classList.add('swiper-slide');
