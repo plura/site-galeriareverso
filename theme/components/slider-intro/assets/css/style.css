@@ -67,15 +67,14 @@ body {
 	width: var(--rg-globals-theme-width);
 	z-index: 2;
 }
-
-.rg-intro-slider .rg-intro-slide > .plura-wp-title,
+.rg-intro-slider :is(.rg-intro-slide > .plura-wp-title, .rg-intro-slide > .plura-wp-link > .plura-wp-title),
 .rg-intro-slider .rg-intro-slide > .rg-datetime * {
 	color: white;
 }
 
 
 /* Title */
-.rg-intro-slider .rg-intro-slide > .plura-wp-title {
+.rg-intro-slider :is(.rg-intro-slide > .plura-wp-title, .rg-intro-slide > .plura-wp-link > .plura-wp-title) {
 	align-items: flex-end;
 	bottom: var(--rg-intro-slider-title-pos);
 	display: flex;
