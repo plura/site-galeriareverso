@@ -300,16 +300,17 @@ add_filter( 'plura_wp_post_featured_image', function( $html, $post, $size, $atts
 
 add_action('rest_api_init', function() {
 
-	register_rest_route('rg/v1', '/objects/shop', [
+	register_rest_route('rg/v1', '/objects', [
 		'methods'             => 'GET',
 		'callback'            => function( WP_REST_Request $request ) {
 
 			$limit   = (int) ($request->get_param('limit') ?? 6);
-			$context = 'rg-theme-slider-intro-shop';
+			$shop    = (bool) $request->get_param('shop');
+			$context = trim((string) $request->get_param('context')) ?: null;
 
 			$html = plura_wp_posts(
 				type:    'rg_object',
-				params:  ['shop' => true],
+				params:  ['shop' => $shop],
 				rand:    true,
 				limit:   $limit,
 				context: $context,
