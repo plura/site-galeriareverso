@@ -17,11 +17,11 @@ export default (slideEl) => {
 		grid: { rows: 2, fill: 'row' },
 		slidesPerView: 2,
 		slidesPerGroup: 2,
-		spaceBetween: 20,
+		spaceBetween: 12,
 		speed: 800,
 		breakpoints: {
-			768:  { slidesPerView: 3, slidesPerGroup: 3, grid: { rows: 2, fill: 'row' } },
-			1200: { slidesPerView: 4, slidesPerGroup: 4, grid: { rows: 2, fill: 'row' } },
+			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 20, grid: { rows: 2, fill: 'row' } },
+			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 28, grid: { rows: 2, fill: 'row' } },
 		},
 	});
 
