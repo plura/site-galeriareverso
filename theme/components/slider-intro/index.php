@@ -146,11 +146,11 @@ add_filter('plura_wp_post_atts', function(array $atts, WP_Post $post, ?string $c
 
 		if( $post->ID === RG_PAGE_SHOP_ID ) {
 
-			$atts['data-slider-type'] = 'shop';
+			$atts['data-slide-type'] = 'shop';
 
-		} else {
+		} else if( get_post_type($post) === 'rg_exhibition' ) {
 
-			$atts['data-slider-type'] = 'exhibition';
+			$atts['data-slide-type'] = 'exhibition';
 
 		}
 

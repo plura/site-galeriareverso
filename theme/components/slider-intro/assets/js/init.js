@@ -1,5 +1,5 @@
 import animateIntro from './animations/intro.js';
-// import shopSlider from './shop.js';
+import shopSlider from './shop.js';
 
 const setatts = (el, params) => Object.entries(params).forEach(([key, value]) => el?.setAttribute(`data-${key}`, value));
 
@@ -45,9 +45,13 @@ const timelines = [];
 
 swiper.slides.forEach((slide, index) => {
 	const type = slide.dataset.slideType;
-
+	console.log(index, type);
 	// Per-slide setup
-	if (type === 'shop') shopSlider(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
+	if (type === 'shop') {
+		console.log(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
+		shopSlider(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
+
+	}
 
 	// GSAP timeline
 	const tl = gsap.timeline({

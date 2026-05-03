@@ -23,6 +23,7 @@ export default (postsEl) => {
 			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 20, grid: { rows: 2, fill: 'row' } },
 			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: 28, grid: { rows: 2, fill: 'row' } },
 		},
+		nested: true
 	});
 
 };

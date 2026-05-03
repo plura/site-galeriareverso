@@ -101,26 +101,26 @@ body {
    ======================================== */
 
 /* Shop */
-.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts {
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts {
 	display: block;
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
 }
 
-.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
 	aspect-ratio: 1 / 1;
 }
 
-.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] :is(.plura-wp-link, .plura-wp-post-title, .plura-wp-post-meta-item-value) {
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] :is(.plura-wp-link, .plura-wp-post-title, .plura-wp-post-meta-item-value) {
 	font-size: var(--rg-globals-theme-fonts-size-body-xxs);
 }
 
-.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] :is(.plura-wp-post, .plura-wp-post-meta) {
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] :is(.plura-wp-post, .plura-wp-post-meta) {
 	gap: calc(var(--plura-wp-posts-gap) / 12);
 }
 
-.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] * {
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] * {
 	color: white;
 }
 
