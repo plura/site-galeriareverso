@@ -102,19 +102,10 @@ body {
 
 /* Shop */
 .rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts {
+	display: block;
+	overflow: hidden;
 	position: relative;
 	z-index: 1;
-}
-
-.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] {
-	--plura-wp-posts-cols: 2;
-	gap: 1vh 9vw;
-}
-
-@media (min-width: 768px) {
-	.rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] {
-		--plura-wp-posts-cols: 3;
-	}
 }
 
 .rg-intro-slider .rg-intro-slide[data-slider-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
