@@ -1,4 +1,5 @@
 import introAnimation from './animations/intro.js';
+// import shopSlider from './shop.js';
 
 const setatts = (el, params) => Object.entries(params).forEach(([key, value]) => el?.setAttribute(`data-${key}`, value));
 
@@ -52,6 +53,8 @@ swiper.slides.forEach((slide, index) => {
 	if (type === 'intro') {
 		introAnimation(tl);
 	}
+
+	// if (type === 'shop') shopSlider(slide);
 
 	timelines[index] = tl;
 });
