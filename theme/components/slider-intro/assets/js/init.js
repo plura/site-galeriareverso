@@ -45,13 +45,9 @@ const timelines = [];
 
 swiper.slides.forEach((slide, index) => {
 	const type = slide.dataset.slideType;
-	console.log(index, type);
-	// Per-slide setup
-	if (type === 'shop') {
-		console.log(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
-		shopSlider(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
 
-	}
+	// Per-slide setup
+	if (type === 'shop') shopSlider(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
 
 	// GSAP timeline
 	const tl = gsap.timeline({
