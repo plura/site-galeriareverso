@@ -58,12 +58,13 @@ body {
 
 
 /* Slide content */
-.rg-intro-slider .rg-intro-slide > :is(.plura-wp-title, .rg-datetime) {
-	position: absolute;
-}
-
-.rg-intro-slider .rg-intro-slide > :is(.plura-wp-title, .rg-datetime) {
+.rg-intro-slider :is(
+	.rg-intro-slide > .plura-wp-title,
+	.rg-intro-slide > .plura-wp-link > .plura-wp-title,
+	.rg-intro-slide > .rg-datetime
+) {
 	left: calc( ( 100dvw - var(--rg-globals-theme-width) ) / 2 );
+	position: absolute;
 	width: var(--rg-globals-theme-width);
 	z-index: 2;
 }
