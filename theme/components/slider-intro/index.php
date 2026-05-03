@@ -34,30 +34,32 @@ add_shortcode('rg-theme-slider-intro', function( $args ) {
 
 add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $context = null, ?int $index = null, array $original = []): array {
 
-	if ( $context === RG_HOME_SLIDE_CONTEXT && plura_wpml_id( $post->ID ) === RG_PAGE_SHOP_ID ) {
-
-		return [
-			'featured-image' => $original['featured-image'] ?? null,
-			'title' => $original['title'] ?? null,
-			'posts' => plura_wp_posts(
-				type: 'rg_object',
-				params: ['shop' => true],
-				rand: true,
-				limit: 6,
-				context: 'rg-theme-slider-intro-shop',
-				link: -1,
-				wrap: true
-			),
-		];
-
-	}
-
 	if ( in_array( $context, [RG_HOME_SLIDE_CONTEXT, RG_HOME_SLIDE_CONTEXT . '-thumbs'] ) && in_array( get_post_type($post), ['rg_exhibition', 'page'] ) ) {
 
 		$a = [];
 
-		if( $context === RG_HOME_SLIDE_CONTEXT) {
+		if( $context === RG_HOME_SLIDE_CONTEXT ) {
 
+			// Shop slide: inject objects grid instead of standard entry
+			if( plura_wpml_id( $post->ID ) === RG_PAGE_SHOP_ID ) {
+
+				return [
+					'featured-image' => $original['featured-image'] ?? null,
+					'title' => $original['title'] ?? null,
+					'posts' => plura_wp_posts(
+						type: 'rg_object',
+						params: ['shop' => true],
+						rand: true,
+						limit: 6,
+						context: 'rg-theme-slider-intro-shop',
+						link: -1,
+						wrap: true
+					),
+				];
+
+			}
+
+			// Exhibition / page slides: featured image, linked title, optional datetime
 			foreach(['featured-image', 'title'] as $key) {
 
 				if( array_key_exists($key, $original) ) {
@@ -70,7 +72,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 
 						$a[$key] = $original[$key];
 
-					}				
+					}
 
 				}
 
@@ -84,6 +86,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 
 		} else {
 
+			// Thumbs context: featured image only
 			foreach(['featured-image'] as $key) {
 
 				if( array_key_exists($key, $original) ) {
@@ -92,7 +95,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 
 				}
 
-			}			
+			}
 
 		}
 
