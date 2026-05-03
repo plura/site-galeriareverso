@@ -1,6 +1,7 @@
 :root {
 
-	--rg-globals-theme-border-radius: 5px;
+	--rg-globals-theme-border-radius-sm: 5px;
+	--rg-globals-theme-border-radius-md: 10px;
 	--rg-banner-h: 400px;
 
 	/* ========================
