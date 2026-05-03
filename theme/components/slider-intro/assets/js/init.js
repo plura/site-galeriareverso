@@ -1,4 +1,4 @@
-import introAnimation from './animations/intro.js';
+import animateIntro from './animations/intro.js';
 // import shopSlider from './shop.js';
 
 const setatts = (el, params) => Object.entries(params).forEach(([key, value]) => el?.setAttribute(`data-${key}`, value));
@@ -45,16 +45,17 @@ const timelines = [];
 
 swiper.slides.forEach((slide, index) => {
 	const type = slide.dataset.slideType;
+
+	// Per-slide setup
+	// if (type === 'shop') shopSlider(slide);
+
+	// GSAP timeline
 	const tl = gsap.timeline({
 		paused: true,
 		defaults: { ease: "power2.out", duration: 0.6 }
 	});
 
-	if (type === 'intro') {
-		introAnimation(tl);
-	}
-
-	// if (type === 'shop') shopSlider(slide);
+	if (type === 'intro') animateIntro(tl);
 
 	timelines[index] = tl;
 });
