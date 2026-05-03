@@ -2,10 +2,10 @@ import introAnimation from './animations/intro.js';
 
 const setatts = (el, params) => Object.entries(params).forEach(([key, value]) => el?.setAttribute(`data-${key}`, value));
 
-const slides = document.querySelectorAll('.rg-slider .swiper-wrapper > .plura-wp-post');
-const thumbs = document.querySelectorAll('.rg-slider-thumbs .swiper-wrapper > .plura-wp-post');
+const slides = document.querySelectorAll('.rg-intro-slider .swiper-wrapper > .plura-wp-post');
+const thumbs = document.querySelectorAll('.rg-intro-slider-thumbs .swiper-wrapper > .plura-wp-post');
 
-[...slides, ...thumbs].forEach(element => element.classList.add(...['swiper-slide', 'rg-slide']));
+[...slides, ...thumbs].forEach(element => element.classList.add(...['swiper-slide', 'rg-intro-slide']));
 
 [...slides].forEach(slide => {
 
@@ -16,10 +16,10 @@ const thumbs = document.querySelectorAll('.rg-slider-thumbs .swiper-wrapper > .p
 });
 
 
-const swiper = new Swiper('.rg-slider', {
+const swiper = new Swiper('.rg-intro-slider', {
 	navigation: {
-		nextEl: '.rg-slider-next',
-		prevEl: '.rg-slider-prev',
+		nextEl: '.rg-intro-slider-next',
+		prevEl: '.rg-intro-slider-prev',
 	},
 	parallax: true,
 	slidesPerView: 1,
@@ -27,7 +27,7 @@ const swiper = new Swiper('.rg-slider', {
 });
 
 
-const swiper_thumbs = new Swiper('.rg-slider-thumbs', {
+const swiper_thumbs = new Swiper('.rg-intro-slider-thumbs', {
 	slidesPerView: 'auto',
 	slideToClickedSlide: true,
 	spaceBetween: 20,
