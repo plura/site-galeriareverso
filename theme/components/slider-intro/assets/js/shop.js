@@ -1,6 +1,4 @@
-export default (slideEl) => {
-
-	const postsEl = slideEl.querySelector('.plura-wp-posts');
+export default (postsEl) => {
 
 	postsEl.classList.add('swiper', 'rg-shop-swiper');
 

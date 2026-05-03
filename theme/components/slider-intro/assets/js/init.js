@@ -47,7 +47,7 @@ swiper.slides.forEach((slide, index) => {
 	const type = slide.dataset.slideType;
 
 	// Per-slide setup
-	// if (type === 'shop') shopSlider(slide);
+	if (type === 'shop') shopSlider(slide.querySelector('.plura-wp-posts[data-type="rg_object"]'));
 
 	// GSAP timeline
 	const tl = gsap.timeline({
