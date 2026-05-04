@@ -5,9 +5,9 @@ const spacing = {
 };
 
 const getSpacingY = (swiper) => {
-	const bp = parseInt(swiper.currentBreakpoint);
-	if (bp >= 1200) return spacing[1200].y;
-	if (bp >= 768)  return spacing[768].y;
+	const cols = swiper.params.slidesPerView;
+	if (cols >= 4) return spacing[1200].y;
+	if (cols >= 3) return spacing[768].y;
 	return spacing.base.y;
 };
 
@@ -15,10 +15,12 @@ const adjustRowGap = (swiper) => {
 	const cols  = swiper.params.slidesPerView;
 	const rows  = swiper.params.grid?.rows ?? 1;
 	const group = cols * rows;
+	const x     = swiper.params.spaceBetween;
 	const y     = getSpacingY(swiper);
+	const delta = y - x; // negative — pulls second row closer to first
 
 	swiper.slides.forEach((slide, i) => {
-		slide.style.marginTop = (i % group >= cols) ? `${y}px` : '';
+		slide.style.translate = (i % group >= cols) ? `0 ${delta}px` : '';
 	});
 };
 
@@ -37,7 +39,7 @@ export default (postsEl) => {
 	[...postsEl.children].forEach(child => wrapper.appendChild(child));
 	postsEl.appendChild(wrapper);
 
-	const swiper = new Swiper(postsEl, {
+	new Swiper(postsEl, {
 		grid: { rows: 2, fill: 'row' },
 		slidesPerView: 2,
 		slidesPerGroup: 2,
@@ -48,9 +50,10 @@ export default (postsEl) => {
 			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: spacing[1200].x, grid: { rows: 2, fill: 'row' } },
 		},
 		nested: true,
+		on: {
+			afterInit:  (s) => adjustRowGap(s),
+			breakpoint: (s) => adjustRowGap(s),
+		},
 	});
-
-	swiper.on('breakpoint', () => adjustRowGap(swiper));
-	adjustRowGap(swiper);
 
 };
