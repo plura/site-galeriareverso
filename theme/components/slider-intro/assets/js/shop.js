@@ -27,6 +27,10 @@ export default (postsEl) => {
 	[...postsEl.children].forEach(child => wrapper.appendChild(child));
 	postsEl.appendChild(wrapper);
 
+	const pagination = document.createElement('div');
+	pagination.classList.add('swiper-pagination');
+	postsEl.appendChild(pagination);
+
 	new Swiper(postsEl, {
 		grid:          { rows: cssVar('--rg-shop-rows-base', 2), fill: 'row' },
 		slidesPerView: cssVar('--rg-shop-cols-base', 2),
@@ -47,6 +51,7 @@ export default (postsEl) => {
 				grid: { rows: cssVar('--rg-shop-rows-1200', 2), fill: 'row' },
 			},
 		},
+		pagination: { el: '.swiper-pagination', clickable: true },
 		nested: true,
 		on: {
 			afterInit:  (s) => adjustRowGap(s),

@@ -131,6 +131,7 @@ body {
 }
 
 .rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post {
+	display: inline-flex;
 	position: relative;
 }
 
@@ -139,8 +140,8 @@ body {
 	border-radius: var(--rg-globals-theme-border-radius-sm);
 	padding: 2px 6px;
 	position: absolute;
-	right: 5px;
-	top: 5px;
+	right: var(--rg-globals-theme-border-radius-sm);
+	top: var(--rg-globals-theme-border-radius-sm);
 }
 
 .rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
