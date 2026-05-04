@@ -10,11 +10,11 @@
 
 	--rg-shop-space-x-base: 12px;
 	--rg-shop-space-x-768:  20px;
-	--rg-shop-space-x-1200: 40px;
+	--rg-shop-space-x-1200: 60px;
 
 	--rg-shop-space-y-base: 6px;
-	--rg-shop-space-y-768:  8px;
-	--rg-shop-space-y-1200: 10px;
+	--rg-shop-space-y-768:  40px;
+	--rg-shop-space-y-1200: 20px;
 
 	--rg-shop-row-gap: var(--rg-shop-space-y-base);
 }

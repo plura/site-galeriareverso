@@ -25,13 +25,13 @@ export default (postsEl) => {
 	postsEl.appendChild(wrapper);
 
 	new Swiper(postsEl, {
-		grid: { rows: 2, fill: 'row' },
+		grid: { rows: 3, fill: 'row' },
 		slidesPerView: 2,
 		slidesPerGroup: 2,
 		spaceBetween: cssVar('--rg-shop-space-x-base'),
 		speed: 800,
 		breakpoints: {
-			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: cssVar('--rg-shop-space-x-768'),  grid: { rows: 2, fill: 'row' } },
+			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: cssVar('--rg-shop-space-x-768'),  grid: { rows: 3, fill: 'row' } },
 			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: cssVar('--rg-shop-space-x-1200'), grid: { rows: 2, fill: 'row' } },
 		},
 		nested: true,
