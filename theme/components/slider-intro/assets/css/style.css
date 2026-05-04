@@ -106,6 +106,29 @@ body {
 }
 
 
+/* Prev / Next */
+:is(.rg-intro-slider-prev, .rg-intro-slider-next) {
+	align-items: center;
+	border: 2px solid var(--rg-globals-theme-colors-color1);
+	border-radius: 50%;
+	color: var(--rg-globals-theme-colors-color1);
+	display: flex;
+	height: 44px;
+	justify-content: center;
+	transition: background-color var(--rg-globals-theme-anim-speed), color var(--rg-globals-theme-anim-speed);
+	width: 44px;
+}
+
+:is(.rg-intro-slider-prev, .rg-intro-slider-next)::after {
+	display: none;
+}
+
+:is(.rg-intro-slider-prev, .rg-intro-slider-next):hover {
+	background-color: var(--rg-globals-theme-colors-color1);
+	color: white;
+}
+
+
 /* Datetime */
 .rg-intro-slider .rg-intro-slide > .rg-datetime {
 	align-items: flex-end;
