@@ -15,12 +15,9 @@ const adjustRowGap = (swiper) => {
 	const cols  = swiper.params.slidesPerView;
 	const rows  = swiper.params.grid?.rows ?? 1;
 	const group = cols * rows;
-	const x     = swiper.params.spaceBetween;
 	const y     = getSpacingY(swiper);
-	const delta = y - x; // negative — pulls second row closer to first
-
 	swiper.slides.forEach((slide, i) => {
-		slide.style.translate = (i % group >= cols) ? `0 ${delta}px` : '';
+		if (i % group >= cols) slide.style.marginTop = `${y}px`;
 	});
 };
 
