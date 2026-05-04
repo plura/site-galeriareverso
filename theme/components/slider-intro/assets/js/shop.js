@@ -15,7 +15,7 @@ const adjustRowGap = (swiper) => {
 	const cols  = swiper.params.slidesPerView;
 	const rows  = swiper.params.grid?.rows ?? 1;
 	const group = cols * rows;
-	const y     = getSpacingY(swiper);
+	const y = getSpacingY(swiper);
 	swiper.slides.forEach((slide, i) => {
 		if (i % group >= cols) slide.style.marginTop = `${y}px`;
 	});
@@ -48,8 +48,8 @@ export default (postsEl) => {
 		},
 		nested: true,
 		on: {
-			afterInit:  (s) => adjustRowGap(s),
-			breakpoint: (s) => adjustRowGap(s),
+			afterInit:  (s) => setTimeout(() => adjustRowGap(s), 0),
+			breakpoint: (s) => setTimeout(() => adjustRowGap(s), 0),
 		},
 	});
 
