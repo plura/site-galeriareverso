@@ -3,8 +3,8 @@ import shopSlider from './shop.js';
 
 const setatts = (el, params) => Object.entries(params).forEach(([key, value]) => el?.setAttribute(`data-${key}`, value));
 
-const slides = document.querySelectorAll('.rg-intro-slider .swiper-wrapper > .plura-wp-post');
-const thumbs = document.querySelectorAll('.rg-intro-slider-thumbs .swiper-wrapper > .plura-wp-post');
+const slides = document.querySelectorAll('.rg-intro-slider .swiper-wrapper > :is(.swiper-slide, .plura-wp-post)');
+const thumbs = document.querySelectorAll('.rg-intro-slider-thumbs .swiper-wrapper > :is(.swiper-slide, .plura-wp-post)');
 
 [...slides, ...thumbs].forEach(element => element.classList.add(...['swiper-slide', 'rg-intro-slide']));
 
