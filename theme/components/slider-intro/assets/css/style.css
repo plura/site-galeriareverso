@@ -134,9 +134,9 @@ body {
 	position: relative;
 }
 
-.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-meta-item[data-type="value"] {
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-meta-item[data-type="price"] {
 	background-color: var(--rg-globals-theme-colors-color1);
-	border-radius: 999px;
+	border-radius: var(--rg-globals-theme-border-radius-sm);
 	padding: 2px 6px;
 	position: absolute;
 	right: 5px;
