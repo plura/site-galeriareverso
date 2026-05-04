@@ -5,9 +5,23 @@ Custom WordPress theme and plugin for [Galeria Reverso](https://galeriareverso.c
 ## Structure
 
 ```
-plugin/     — Custom plugin: CPTs, shortcodes, business logic
-theme/      — Divi child theme: CSS, JS, template customizations
-template/   — CF7 contact form HTML template
+plugin/
+  includes/             — CPT definitions, shortcodes, REST endpoints
+
+theme/
+  functions.php         — enqueue scripts/styles, load components
+  includes/
+    css/                — base.css: global CSS vars, typography
+    js/                 — scripts.js: global init (ResizeObserver, etc.)
+  components/
+    slider-intro/       — Homepage intro slider (exhibitions, shop slide)
+      index.php         — shortcode + filters (post meta, atts, featured image)
+      index.html        — Swiper markup template
+      assets/
+        css/            — Component styles and CSS vars
+        js/             — init.js (Swiper setup, GSAP), shop.js (nested shop slider)
+
+template/               — CF7 contact form HTML templates
 ```
 
 ## Deployment
