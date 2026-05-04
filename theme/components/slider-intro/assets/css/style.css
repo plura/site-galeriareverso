@@ -121,9 +121,20 @@ body {
 
 .rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] {
 	display: block;
-	overflow: hidden;
+	overflow-x: clip;
+	overflow-y: visible;
 	position: relative;
 	z-index: 1;
+}
+
+.rg-intro-shop-slider .swiper-pagination-bullet {
+	background: transparent;
+	border: 2px solid var(--rg-globals-theme-colors-color1);
+	opacity: 1;
+}
+
+.rg-intro-shop-slider .swiper-pagination-bullet-active {
+	background-color: var(--rg-globals-theme-colors-color1);
 }
 
 .rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post.rg-row-2 {
