@@ -1,4 +1,7 @@
-const cssVar = (name) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+const cssVar = (name, fallback) => {
+	const val = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+	return isNaN(val) ? fallback : val;
+};
 
 const adjustRowGap = (swiper) => {
 	const cols  = swiper.params.slidesPerView;
@@ -25,14 +28,24 @@ export default (postsEl) => {
 	postsEl.appendChild(wrapper);
 
 	new Swiper(postsEl, {
-		grid: { rows: 3, fill: 'row' },
-		slidesPerView: 2,
-		slidesPerGroup: 2,
-		spaceBetween: cssVar('--rg-shop-space-x-base'),
+		grid:          { rows: cssVar('--rg-shop-rows-base', 2), fill: 'row' },
+		slidesPerView: cssVar('--rg-shop-cols-base', 2),
+		slidesPerGroup: cssVar('--rg-shop-cols-base', 2),
+		spaceBetween:  cssVar('--rg-shop-space-x-base', 12),
 		speed: 800,
 		breakpoints: {
-			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: cssVar('--rg-shop-space-x-768'),  grid: { rows: 3, fill: 'row' } },
-			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: cssVar('--rg-shop-space-x-1200'), grid: { rows: 2, fill: 'row' } },
+			768:  {
+				slidesPerView:  cssVar('--rg-shop-cols-768', 3),
+				slidesPerGroup: cssVar('--rg-shop-cols-768', 3),
+				spaceBetween:   cssVar('--rg-shop-space-x-768', 20),
+				grid: { rows: cssVar('--rg-shop-rows-768', 2), fill: 'row' },
+			},
+			1200: {
+				slidesPerView:  cssVar('--rg-shop-cols-1200', 4),
+				slidesPerGroup: cssVar('--rg-shop-cols-1200', 4),
+				spaceBetween:   cssVar('--rg-shop-space-x-1200', 60),
+				grid: { rows: cssVar('--rg-shop-rows-1200', 2), fill: 'row' },
+			},
 		},
 		nested: true,
 		on: {
