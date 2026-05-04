@@ -15,9 +15,11 @@ const adjustRowGap = (swiper) => {
 	const cols  = swiper.params.slidesPerView;
 	const rows  = swiper.params.grid?.rows ?? 1;
 	const group = cols * rows;
-	const y = getSpacingY(swiper);
+	const y     = getSpacingY(swiper);
+
+	swiper.el.style.setProperty('--rg-shop-row-gap', `${y}px`);
 	swiper.slides.forEach((slide, i) => {
-		if (i % group >= cols) slide.style.marginTop = `${y}px`;
+		slide.classList.toggle('rg-row-2', i % group >= cols);
 	});
 };
 
@@ -48,8 +50,8 @@ export default (postsEl) => {
 		},
 		nested: true,
 		on: {
-			afterInit:  (s) => setTimeout(() => adjustRowGap(s), 0),
-			breakpoint: (s) => setTimeout(() => adjustRowGap(s), 0),
+			afterInit:  (s) => adjustRowGap(s),
+			breakpoint: (s) => adjustRowGap(s),
 		},
 	});
 

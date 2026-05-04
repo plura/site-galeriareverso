@@ -108,6 +108,10 @@ body {
    ======================================== */
 
 /* Shop */
+.rg-intro-shop-slider .swiper-slide.rg-row-2 {
+	margin-top: var(--rg-shop-row-gap) !important;
+}
+
 .rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts {
 	display: block;
 	overflow: hidden;
@@ -134,7 +138,7 @@ body {
 
 
 /* Intro */
-.rg-intro-slider .rg-intro-slide.rg-intro #rg-logo {
+.rg-intro-slider .rg-intro-slide[data-slide-type="intro"] #rg-logo {
 	left: 50%;
 	position: absolute;
 	top: 50%;
