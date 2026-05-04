@@ -1,7 +1,7 @@
 const spacing = {
 	base: { x: 12, y: 6  },
 	768:  { x: 20, y: 8  },
-	1200: { x: 28, y: 10 },
+	1200: { x: 40, y: 10 },
 };
 
 const getSpacingY = (swiper) => {
