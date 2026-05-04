@@ -1,23 +1,9 @@
-const spacing = {
-	base: { x: 12, y: 6  },
-	768:  { x: 20, y: 8  },
-	1200: { x: 40, y: 10 },
-};
-
-const getSpacingY = (swiper) => {
-	const cols = swiper.params.slidesPerView;
-	if (cols >= 4) return spacing[1200].y;
-	if (cols >= 3) return spacing[768].y;
-	return spacing.base.y;
-};
+const cssVar = (name) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
 
 const adjustRowGap = (swiper) => {
 	const cols  = swiper.params.slidesPerView;
 	const rows  = swiper.params.grid?.rows ?? 1;
 	const group = cols * rows;
-	const y     = getSpacingY(swiper);
-
-	swiper.el.style.setProperty('--rg-shop-row-gap', `${y}px`);
 	swiper.slides.forEach((slide, i) => {
 		slide.classList.toggle('rg-row-2', i % group >= cols);
 	});
@@ -42,11 +28,11 @@ export default (postsEl) => {
 		grid: { rows: 2, fill: 'row' },
 		slidesPerView: 2,
 		slidesPerGroup: 2,
-		spaceBetween: spacing.base.x,
+		spaceBetween: cssVar('--rg-shop-space-x-base'),
 		speed: 800,
 		breakpoints: {
-			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: spacing[768].x,  grid: { rows: 2, fill: 'row' } },
-			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: spacing[1200].x, grid: { rows: 2, fill: 'row' } },
+			768:  { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: cssVar('--rg-shop-space-x-768'),  grid: { rows: 2, fill: 'row' } },
+			1200: { slidesPerView: 4, slidesPerGroup: 4, spaceBetween: cssVar('--rg-shop-space-x-1200'), grid: { rows: 2, fill: 'row' } },
 		},
 		nested: true,
 		on: {
