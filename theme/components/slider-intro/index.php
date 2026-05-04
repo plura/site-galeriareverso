@@ -109,7 +109,7 @@ add_filter('plura_wp_post', function (array $entry, WP_Post $post, ?string $cont
 add_filter('plura_wp_post_meta', function( array $meta, WP_Post $_post, ?string $context ): array {
 
 	if( $context === 'rg-theme-slider-intro-shop' ) {
-		return array_intersect_key( $meta, array_flip(['title', 'type', 'artist']) );
+		return array_intersect_key( $meta, array_flip(['title', 'type', 'artist', 'price', 'value']) );
 	}
 
 	return $meta;

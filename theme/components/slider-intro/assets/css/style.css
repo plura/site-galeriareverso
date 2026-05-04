@@ -130,6 +130,19 @@ body {
 	margin-top: var(--rg-shop-row-gap) !important;
 }
 
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post {
+	position: relative;
+}
+
+.rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-meta-item[data-type="value"] {
+	background-color: var(--rg-globals-theme-colors-color1);
+	border-radius: 999px;
+	padding: 2px 6px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
 .rg-intro-slider .rg-intro-slide[data-slide-type="shop"] .plura-wp-posts[data-type="rg_object"] .plura-wp-post-featured-image {
 	aspect-ratio: 1 / 1;
 	border-radius: var(--rg-globals-theme-border-radius-md);
