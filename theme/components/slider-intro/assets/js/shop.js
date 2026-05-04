@@ -8,7 +8,8 @@ const adjustRowGap = (swiper) => {
 	const rows  = swiper.params.grid?.rows ?? 1;
 	const group = cols * rows;
 	swiper.slides.forEach((slide, i) => {
-		slide.classList.toggle('rg-row-2', i % group >= cols);
+		[...slide.classList].filter(c => c.startsWith('rg-slider-row-')).forEach(c => slide.classList.remove(c));
+		slide.classList.add(`rg-slider-row-${Math.floor((i % group) / cols) + 1}`);
 	});
 };
 
